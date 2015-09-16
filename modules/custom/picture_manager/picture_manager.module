@@ -1,0 +1,20 @@
+<?php
+/**
+ * Implements hook_form_alter().
+ */
+function picture_manager_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  //var_dump($form_id);
+
+  //debug func dpm() not working.
+  if($form_id == 'node_article_form'){
+    kint($form);
+  }
+}
+
+//TODO hook_page_alter not working??
+/**
+ * Implements hook_page_alter().
+ */
+function picture_manager_page_alter(&$page) {
+  //kint($page);
+}
