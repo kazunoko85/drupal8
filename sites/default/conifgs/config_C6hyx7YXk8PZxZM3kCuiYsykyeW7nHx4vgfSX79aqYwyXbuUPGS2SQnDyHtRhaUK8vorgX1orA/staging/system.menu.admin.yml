@@ -1,8 +1,0 @@
-uuid: 20625a20-1516-46ff-9207-7e3770612a3f
-langcode: ja
-status: true
-dependencies: {  }
-id: admin
-label: 管理
-description: 'Contains links to administrative tasks.'
-locked: true

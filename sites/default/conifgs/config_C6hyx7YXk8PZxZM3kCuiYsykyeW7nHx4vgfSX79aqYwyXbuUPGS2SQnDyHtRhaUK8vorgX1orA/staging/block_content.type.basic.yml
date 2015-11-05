@@ -1,8 +1,0 @@
-uuid: b8d4010c-800c-4418-9100-ae7ab0acf027
-langcode: ja
-status: true
-dependencies: {  }
-id: basic
-label: 'Basic block'
-revision: 0
-description: 'A basic block contains a title and a body.'
