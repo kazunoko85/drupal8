@@ -1,0 +1,22 @@
+uuid: fb94e139-85ac-4bb0-8607-7c1cc250f8a5
+langcode: ja
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - default_omega_starterkit
+id: default_omega_starterkit_messages
+theme: default_omega_starterkit
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: -1
+visibility: {  }

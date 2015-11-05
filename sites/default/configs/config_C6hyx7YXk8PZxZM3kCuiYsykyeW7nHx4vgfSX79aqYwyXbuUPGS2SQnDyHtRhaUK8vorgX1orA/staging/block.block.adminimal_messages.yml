@@ -1,0 +1,22 @@
+uuid: 08ed67d4-ab04-4c5f-b805-5f87630e8183
+langcode: ja
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - adminimal
+id: adminimal_messages
+theme: adminimal
+region: messages
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: -1
+visibility: {  }

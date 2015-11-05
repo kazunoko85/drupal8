@@ -1,0 +1,22 @@
+uuid: 20f6fb79-7aa8-467f-9503-3d5b991dd4b2
+langcode: ja
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - default_omega_starterkit
+id: default_omega_starterkit_search
+theme: default_omega_starterkit
+region: sidebar_first
+weight: -1
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 検索
+  provider: search
+  label_display: visible
+  cache:
+    max_age: -1
+visibility: {  }

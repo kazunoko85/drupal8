@@ -1,0 +1,11 @@
+uuid: 68022ab0-198e-4913-8400-ca43b60732fc
+langcode: ja
+status: true
+dependencies:
+  module:
+    - comment
+id: comment_save_action
+label: コメントの保存
+type: comment
+plugin: comment_save_action
+configuration: {  }

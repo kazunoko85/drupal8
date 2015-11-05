@@ -1,0 +1,22 @@
+uuid: e34b9cc2-e2f0-4400-9d01-1b5a69f52a88
+langcode: ja
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - adminimal
+id: adminimal_help
+theme: adminimal
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: ヘルプ
+  provider: help
+  label_display: '0'
+  cache:
+    max_age: -1
+visibility: {  }

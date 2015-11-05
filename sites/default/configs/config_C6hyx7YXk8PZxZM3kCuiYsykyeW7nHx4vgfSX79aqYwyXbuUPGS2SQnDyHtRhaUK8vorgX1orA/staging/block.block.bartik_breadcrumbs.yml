@@ -1,0 +1,22 @@
+uuid: d00d70ca-9aa4-423a-852b-43ebe6765c8a
+langcode: ja
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bartik
+id: bartik_breadcrumbs
+theme: bartik
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: -1
+visibility: {  }
