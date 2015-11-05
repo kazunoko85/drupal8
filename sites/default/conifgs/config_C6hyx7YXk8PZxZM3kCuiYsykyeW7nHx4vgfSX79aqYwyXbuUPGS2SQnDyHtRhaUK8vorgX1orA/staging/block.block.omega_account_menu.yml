@@ -1,0 +1,26 @@
+uuid: 10db7e2c-404f-4cc8-9322-346e09aed72a
+langcode: ja
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - omega
+id: omega_account_menu
+theme: omega
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  cache:
+    max_age: -1
+  level: 1
+  depth: 1
+visibility: {  }

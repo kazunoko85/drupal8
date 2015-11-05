@@ -1,0 +1,5 @@
+tips:
+  language-edit-langcode:
+    label: 言語コード
+  language-edit-label:
+    label: 言語名
