@@ -1,0 +1,48 @@
+.layout-header {
+  background-color: $baseColor;
+}
+
+.layout-content {
+  @media all and (min-width: 851px) {
+    margin-left: 20%;
+    margin-right: 20%;
+    float: left;
+    width: 60%;
+  }
+}
+
+/** sidebar
+ width: 560px以上 : メインコンテンツの下に配置
+ width: 851px以上 : メインコンテンツの左右に配置
+*/
+.layout-sidebar {
+  //TODO カラー
+  background-color: #AAD5FF;
+  @media all and (min-width: 560px) {
+    float: left; /* LTR */
+    position: relative;
+    width: 50%;
+  }
+}
+
+.layout-sidebar-first {
+  @media all and (min-width: 851px) {
+    width: 20%;
+    margin-left: -100%;
+  }
+}
+
+.layout-sidebar-second {
+  @media all and (min-width: 851px) {
+    width: 20%;
+    margin-left: -20%;
+    clear: none;
+  }
+}
+
+.layout-footer {
+  background-color: $primaryColor;
+  clear: both;
+  margin: 20px 0 20px 0;
+}
+

@@ -10,7 +10,7 @@
 //@import "init";
 
 /* HTML element (SMACSS base) rules */
-//@import "normalize";
+@import "normalize";
 
 /* Layout rules */
 //@import "layouts/responsive";
@@ -20,6 +20,7 @@
 // Optionally, add your own components here.
 //@import 'mixins';
 //@import 'global/base';
+@import 'variables';
 @import 'site/site';
 
 /* SMACSS theme rules */
