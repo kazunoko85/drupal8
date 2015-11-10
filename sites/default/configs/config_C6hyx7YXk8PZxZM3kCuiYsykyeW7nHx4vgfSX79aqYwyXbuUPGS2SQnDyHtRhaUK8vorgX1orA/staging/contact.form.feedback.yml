@@ -1,0 +1,10 @@
+uuid: 0b27dba2-58d4-4b9e-b121-3322db0fb1c8
+langcode: ja
+status: true
+dependencies: {  }
+id: feedback
+label: 'Website feedback'
+recipients:
+  - murata@dgcircus.com
+reply: ''
+weight: 0

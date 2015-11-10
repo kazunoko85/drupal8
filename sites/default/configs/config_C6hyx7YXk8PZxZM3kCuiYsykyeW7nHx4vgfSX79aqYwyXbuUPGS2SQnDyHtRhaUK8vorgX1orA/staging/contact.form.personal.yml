@@ -1,0 +1,9 @@
+uuid: 20ba0999-a4e1-421f-811a-266886d57748
+langcode: ja
+status: true
+dependencies: {  }
+id: personal
+label: パーソナルコンタクトフォーム
+recipients: {  }
+reply: ''
+weight: 0

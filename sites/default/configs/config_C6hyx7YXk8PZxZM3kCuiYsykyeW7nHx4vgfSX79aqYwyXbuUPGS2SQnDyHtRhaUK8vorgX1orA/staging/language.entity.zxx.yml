@@ -1,0 +1,9 @@
+uuid: f15b3063-053a-473b-b200-a3fd62470550
+langcode: ja
+status: true
+dependencies: {  }
+id: zxx
+label: 適用できません
+direction: ltr
+weight: 3
+locked: true

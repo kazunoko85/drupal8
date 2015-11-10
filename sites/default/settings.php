@@ -673,9 +673,9 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 #   include __DIR__ . '/settings.local.php';
 # }
 $databases['default']['default'] = array (
-  'database' => 'mtest_drupal8',
-  'username' => 'mtest',
-  'password' => 'mtest',
+  'database' => 'drupal8',
+  'username' => 'drupal8',
+  'password' => 'gweDe8bc',
   'prefix' => '',
   'host' => 'localhost',
   'port' => '3306',
@@ -683,5 +683,5 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 $settings['install_profile'] = 'standard';
-$config_directories['active'] = 'sites/default/files/config_C6hyx7YXk8PZxZM3kCuiYsykyeW7nHx4vgfSX79aqYwyXbuUPGS2SQnDyHtRhaUK8vorgX1orA/active';
-$config_directories['staging'] = 'sites/default/files/config_C6hyx7YXk8PZxZM3kCuiYsykyeW7nHx4vgfSX79aqYwyXbuUPGS2SQnDyHtRhaUK8vorgX1orA/staging';
+$config_directories['active'] = 'sites/default/configs/config_C6hyx7YXk8PZxZM3kCuiYsykyeW7nHx4vgfSX79aqYwyXbuUPGS2SQnDyHtRhaUK8vorgX1orA/active';
+$config_directories['staging'] = 'sites/default/configs/config_C6hyx7YXk8PZxZM3kCuiYsykyeW7nHx4vgfSX79aqYwyXbuUPGS2SQnDyHtRhaUK8vorgX1orA/staging';
