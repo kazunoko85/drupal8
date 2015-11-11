@@ -142,7 +142,7 @@ class TranslatableMarkup extends FormattableMarkup {
   public function __construct($string, array $arguments = array(), array $options = array(), TranslationInterface $string_translation = NULL) {
     if (!is_string($string)) {
       $message = $string instanceof TranslatableMarkup ? '$string ("' . $string->getUntranslatedString() . '") must be a string.' : '$string ("' . (string) $string . '") must be a string.';
-      throw new \InvalidArgumentException($message);
+      //throw new \InvalidArgumentException($message);
     }
     $this->string = $string;
     $this->arguments = $arguments;
