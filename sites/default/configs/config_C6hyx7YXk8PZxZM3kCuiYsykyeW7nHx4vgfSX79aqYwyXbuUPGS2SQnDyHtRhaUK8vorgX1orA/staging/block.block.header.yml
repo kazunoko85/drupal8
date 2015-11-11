@@ -11,7 +11,7 @@ dependencies:
 id: header
 theme: murata_theme
 region: header
-weight: -8
+weight: -7
 provider: null
 plugin: 'block_content:95523c7c-6216-4cad-8e00-ae33d4ba66fd'
 settings:

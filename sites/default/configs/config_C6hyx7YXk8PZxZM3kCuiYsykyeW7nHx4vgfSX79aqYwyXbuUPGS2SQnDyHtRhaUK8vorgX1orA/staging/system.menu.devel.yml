@@ -1,8 +1,0 @@
-uuid: 3cd06829-6593-4098-a000-caec91a2809e
-langcode: ja
-status: true
-dependencies: {  }
-id: devel
-label: Development
-description: 'Links related to Devel module.'
-locked: true

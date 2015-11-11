@@ -9,7 +9,7 @@ dependencies:
 id: murata_theme_branding
 theme: murata_theme
 region: header
-weight: -7
+weight: -8
 provider: null
 plugin: system_branding_block
 settings:
@@ -18,6 +18,6 @@ settings:
   provider: system
   label_display: '0'
   use_site_logo: true
-  use_site_name: true
-  use_site_slogan: true
+  use_site_name: false
+  use_site_slogan: false
 visibility: {  }
