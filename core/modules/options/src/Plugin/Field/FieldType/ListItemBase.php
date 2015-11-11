@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\options\Type\ListItemBase.
+ * Contains \Drupal\options\Plugin\Field\FieldType\ListItemBase.
  */
 
 namespace Drupal\options\Plugin\Field\FieldType;
@@ -71,7 +71,9 @@ abstract class ListItemBase extends FieldItemBase implements OptionsProviderInte
    * {@inheritdoc}
    */
    public static function generateSampleValue(FieldDefinitionInterface $field_definition) {
-     // @todo Implement this once https://www.drupal.org/node/2238085 lands.
+     $allowed_options = options_allowed_values($field_definition->getFieldStorageDefinition());
+     $values['value'] = array_rand($allowed_options);
+     return $values;
    }
 
   /**
@@ -314,11 +316,24 @@ abstract class ListItemBase extends FieldItemBase implements OptionsProviderInte
         $label = static::structureAllowedValues($label);
       }
       $structured_values[] = array(
-        'value' => $value,
+        'value' => static::castAllowedValue($value),
         'label' => $label,
       );
     }
     return $structured_values;
+  }
+
+  /**
+   * Converts a value to the correct type.
+   *
+   * @param mixed $value
+   *   The value to cast.
+   *
+   * @return mixed
+   *   The casted value.
+   */
+  protected static function castAllowedValue($value) {
+    return $value;
   }
 
 }

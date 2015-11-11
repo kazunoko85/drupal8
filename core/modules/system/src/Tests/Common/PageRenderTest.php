@@ -7,7 +7,6 @@
 
 namespace Drupal\system\Tests\Common;
 
-use Drupal\Core\Render\MainContent\HtmlRenderer;
 use Drupal\simpletest\KernelTestBase;
 
 /**
@@ -68,7 +67,7 @@ class PageRenderTest extends KernelTestBase {
     }
     catch (\LogicException $e) {
       $this->pass($assertion);
-      $this->assertEqual($e->getMessage(), 'Only #attached, #post_render_cache and #cache may be set in ' . $hook . '().');
+      $this->assertEqual($e->getMessage(), 'Only #attached and #cache may be set in ' . $hook . '().');
     }
     \Drupal::state()->set('bc_test.' . $hook . '.descendant_attached', FALSE);
 
@@ -82,7 +81,7 @@ class PageRenderTest extends KernelTestBase {
     }
     catch (\LogicException $e) {
       $this->pass($assertion);
-      $this->assertEqual($e->getMessage(), 'Only #attached, #post_render_cache and #cache may be set in ' . $hook . '().');
+      $this->assertEqual($e->getMessage(), 'Only #attached and #cache may be set in ' . $hook . '().');
     }
     \Drupal::state()->set($module . '.' . $hook . '.render_array', FALSE);
   }

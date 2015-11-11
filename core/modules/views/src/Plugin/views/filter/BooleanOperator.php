@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\views\Plugin\views\filter\BooleanOperator.
+ * Contains \Drupal\views\Plugin\views\filter\BooleanOperator.
  */
 
 namespace Drupal\views\Plugin\views\filter;
@@ -75,7 +75,7 @@ class BooleanOperator extends FilterPluginBase {
   }
 
   /**
-   * Overrides \Drupal\views\Plugin\views\filter\FilterPluginBase::init().
+   * {@inheritdoc}
    */
   public function init(ViewExecutable $view, DisplayPluginBase $display, array &$options = NULL) {
     parent::init($view, $display, $options);

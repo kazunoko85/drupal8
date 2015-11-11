@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\user\Plugin\views\wizard\Users.
+ * Contains \Drupal\user\Plugin\views\wizard\Users.
  */
 
 namespace Drupal\user\Plugin\views\wizard;
@@ -44,7 +44,7 @@ class Users extends WizardPluginBase {
   );
 
   /**
-   * Overrides Drupal\views\Plugin\views\wizard\WizardPluginBase::defaultDisplayOptions().
+   * {@inheritdoc}
    */
   protected function defaultDisplayOptions() {
     $display_options = parent::defaultDisplayOptions();

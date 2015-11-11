@@ -2,14 +2,13 @@
 
 /**
  * @file
- * Contains \Drupal\language\ConfigurableLanguageManagerInterface
+ * Contains \Drupal\language\ConfigurableLanguageManagerInterface.
  */
 
 namespace Drupal\language;
 
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Common interface for language negotiation services.

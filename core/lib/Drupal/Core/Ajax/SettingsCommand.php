@@ -2,12 +2,10 @@
 
 /**
  * @file
- * Definition of Drupal\Core\Ajax\SettingsCommand.
+ * Contains \Drupal\Core\Ajax\SettingsCommand.
  */
 
 namespace Drupal\Core\Ajax;
-
-use Drupal\Core\Ajax\CommandInterface;
 
 /**
  * AJAX command for adjusting Drupal's JavaScript settings.

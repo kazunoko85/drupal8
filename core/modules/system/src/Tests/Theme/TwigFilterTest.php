@@ -8,7 +8,6 @@
 namespace Drupal\system\Tests\Theme;
 
 use Drupal\simpletest\WebTestBase;
-use Drupal\Core\Template\Attribute;
 
 /**
  * Tests Drupal's Twig filters.
@@ -41,7 +40,7 @@ class TwigFilterTest extends WebTestBase {
         'class' => array('red', 'green', 'blue'),
       ),
     );
-    $rendered = drupal_render($filter_test);
+    $rendered = \Drupal::service('renderer')->renderRoot($filter_test);
     $this->setRawContent($rendered);
 
     $elements = array(

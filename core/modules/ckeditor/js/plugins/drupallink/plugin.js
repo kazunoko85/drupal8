@@ -1,21 +1,38 @@
 /**
  * @file
  * Drupal Link plugin.
+ *
+ * @ignore
  */
 
 (function ($, Drupal, drupalSettings, CKEDITOR) {
 
-  "use strict";
+  'use strict';
 
   CKEDITOR.plugins.add('drupallink', {
     init: function (editor) {
       // Add the commands for link and unlink.
       editor.addCommand('drupallink', {
-        allowedContent: 'a[!href,target]',
-        requiredContent: 'a[href]',
+        allowedContent: {
+          a: {
+            attributes: {
+              '!href': true,
+              'target': true
+            },
+            classes: {}
+          }
+        },
+        requiredContent: new CKEDITOR.style({
+          element: 'a',
+          attributes: {
+            href: ''
+          }
+        }),
         modes: {wysiwyg: 1},
         canUndo: true,
         exec: function (editor) {
+          var drupalImageUtils = CKEDITOR.plugins.drupalimage;
+          var focusedImageWidget = drupalImageUtils && drupalImageUtils.getFocusedWidget(editor);
           var linkElement = getSelectedLink(editor);
           var linkDOMElement = null;
 
@@ -30,20 +47,41 @@
             for (var attrIndex = 0; attrIndex < linkDOMElement.attributes.length; attrIndex++) {
               attribute = linkDOMElement.attributes.item(attrIndex);
               attributeName = attribute.nodeName.toLowerCase();
-              // Don't consider data-cke-saved- attributes; they're just there to
-              // work around browser quirks.
+              // Don't consider data-cke-saved- attributes; they're just there
+              // to work around browser quirks.
               if (attributeName.substring(0, 15) === 'data-cke-saved-') {
                 continue;
               }
               // Store the value for this attribute, unless there's a
-              // data-cke-saved- alternative for it, which will contain the quirk-
-              // free, original value.
+              // data-cke-saved- alternative for it, which will contain the
+              // quirk-free, original value.
               existingValues[attributeName] = linkElement.data('cke-saved-' + attributeName) || attribute.nodeValue;
             }
+          }
+          // Or, if an image widget is focused, we're editing a link wrapping
+          // an image widget.
+          else if (focusedImageWidget && focusedImageWidget.data.link) {
+            var url = focusedImageWidget.data.link.url;
+            existingValues.href = url.protocol + url.url;
           }
 
           // Prepare a save callback to be used upon saving the dialog.
           var saveCallback = function (returnValues) {
+            // If an image widget is focused, we're not editing an independent
+            // link, but we're wrapping an image widget in a link.
+            if (focusedImageWidget) {
+              var urlMatch = returnValues.attributes.href.match(urlRegex);
+              focusedImageWidget.setData('link', {
+                type: 'url',
+                url: {
+                  protocol: urlMatch[1],
+                  url: urlMatch[2]
+                }
+              });
+              editor.fire('saveSnapshot');
+              return;
+            }
+
             editor.fire('saveSnapshot');
 
             // Create a new link element if needed.
@@ -95,8 +133,8 @@
             editor.fire('saveSnapshot');
           };
           // Drupal.t() will not work inside CKEditor plugins because CKEditor
-          // loads the JavaScript file instead of Drupal. Pull translated strings
-          // from the plugin settings that are translated server-side.
+          // loads the JavaScript file instead of Drupal. Pull translated
+          // strings from the plugin settings that are translated server-side.
           var dialogSettings = {
             title: linkElement ? editor.config.drupalLink_dialogTitleEdit : editor.config.drupalLink_dialogTitleAdd,
             dialogClass: 'editor-link-dialog'
@@ -109,8 +147,20 @@
       editor.addCommand('drupalunlink', {
         contextSensitive: 1,
         startDisabled: 1,
-        allowedContent: 'a[!href]',
-        requiredContent: 'a[href]',
+        allowedContent: {
+          a: {
+            attributes: {
+              '!href': true,
+              'target': true
+            }
+          }
+        },
+        requiredContent: new CKEDITOR.style({
+          element: 'a',
+          attributes: {
+            href: ''
+          }
+        }),
         exec: function (editor) {
           var style = new CKEDITOR.style({element: 'a', type: CKEDITOR.STYLE_INLINE, alwaysRemoveElement: 1});
           editor.removeStyle(style);
@@ -199,6 +249,7 @@
    *
    * The following selection will all return the link element.
    *
+   * @example
    *  <a href="#">li^nk</a>
    *  <a href="#">[link]</a>
    *  text[<a href="#">link]</a>
@@ -207,6 +258,11 @@
    *  [<a href="#"><b>li]nk</b></a>
    *
    * @param {CKEDITOR.editor} editor
+   *   The CKEditor editor object
+   *
+   * @return {?HTMLElement}
+   *   The selected link element, or null.
+   *
    */
   function getSelectedLink(editor) {
     var selection = editor.getSelection();
@@ -223,5 +279,58 @@
     }
     return null;
   }
+
+  var urlRegex = /^((?:http|https):\/\/)?(.*)$/;
+
+  /**
+   * The image2 plugin is currently tightly coupled to the link plugin: it
+   * calls CKEDITOR.plugins.link.parseLinkAttributes().
+   *
+   * Drupal 8's CKEditor build doesn't include the 'link' plugin. Because it
+   * includes its own link plugin that integrates with Drupal's dialog system.
+   * So, to allow images to be linked, we need to duplicate the necessary subset
+   * of the logic.
+   *
+   * @todo Remove once we update to CKEditor 4.5.5.
+   * @see https://dev.ckeditor.com/ticket/13885
+   */
+  CKEDITOR.plugins.link = CKEDITOR.plugins.link || {
+    parseLinkAttributes: function (editor, element) {
+      var href = (element && (element.data('cke-saved-href') || element.getAttribute('href'))) || '';
+      var urlMatch = href.match(urlRegex);
+      return {
+        type: 'url',
+        url: {
+          protocol: urlMatch[1],
+          url: urlMatch[2]
+        }
+      };
+    },
+    getLinkAttributes: function (editor, data) {
+      var set = {};
+
+      var protocol = (data.url && typeof data.url.protocol !== 'undefined') ? data.url.protocol : 'http://';
+      var url = (data.url && CKEDITOR.tools.trim(data.url.url)) || '';
+      set['data-cke-saved-href'] = (url.indexOf('/') === 0) ? url : protocol + url;
+
+      // Browser need the "href" fro copy/paste link to work. (#6641)
+      if (set['data-cke-saved-href']) {
+        set.href = set['data-cke-saved-href'];
+      }
+
+      // Remove all attributes which are not currently set.
+      var removed = {};
+      for (var s in set) {
+        if (set.hasOwnProperty(s)) {
+          delete removed[s];
+        }
+      }
+
+      return {
+        set: set,
+        removed: CKEDITOR.tools.objectKeys(removed)
+      };
+    }
+  };
 
 })(jQuery, Drupal, drupalSettings, CKEDITOR);

@@ -67,7 +67,7 @@ class DatabaseStorage implements StorageInterface {
   }
 
   /**
-   * Implements Drupal\Core\Config\StorageInterface::exists().
+   * {@inheritdoc}
    */
   public function exists($name) {
     try {
@@ -192,14 +192,14 @@ class DatabaseStorage implements StorageInterface {
       'fields' => array(
         'collection' => array(
           'description' => 'Primary Key: Config object collection.',
-          'type' => 'varchar',
+          'type' => 'varchar_ascii',
           'length' => 255,
           'not null' => TRUE,
           'default' => '',
         ),
         'name' => array(
           'description' => 'Primary Key: Config object name.',
-          'type' => 'varchar',
+          'type' => 'varchar_ascii',
           'length' => 255,
           'not null' => TRUE,
           'default' => '',
@@ -247,7 +247,7 @@ class DatabaseStorage implements StorageInterface {
   }
 
   /**
-   * Implements Drupal\Core\Config\StorageInterface::encode().
+   * {@inheritdoc}
    */
   public function encode($data) {
     return serialize($data);

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\options\Tests\OptionsFieldTest.
+ * Contains \Drupal\options\Tests\OptionsFieldTest.
  */
 
 namespace Drupal\options\Tests;
@@ -80,6 +80,7 @@ class OptionsFieldTest extends OptionsFieldUnitTestBase {
       'field_name' => $this->fieldName,
       'entity_type' => 'entity_test',
       'bundle' => 'entity_test',
+      'required' => TRUE,
     ))->save();
     entity_get_form_display('entity_test', 'entity_test', 'default')
       ->setComponent($this->fieldName, array(

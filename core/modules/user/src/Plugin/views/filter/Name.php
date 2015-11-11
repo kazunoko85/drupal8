@@ -2,12 +2,11 @@
 
 /**
  * @file
- * Definition of Drupal\user\Plugin\views\filter\Name.
+ * Contains \Drupal\user\Plugin\views\filter\Name.
  */
 
 namespace Drupal\user\Plugin\views\filter;
 
-use Drupal\Component\Utility\Tags;
 use Drupal\Core\Entity\Element\EntityAutocomplete;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\User;

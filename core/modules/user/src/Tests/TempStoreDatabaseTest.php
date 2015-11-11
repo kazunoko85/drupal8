@@ -2,12 +2,11 @@
 
 /**
  * @file
- * Definition of Drupal\user\Tests\TempStoreDatabaseTest.
+ * Contains \Drupal\user\Tests\TempStoreDatabaseTest.
  */
 
 namespace Drupal\user\Tests;
 
-use Drupal\Component\Serialization\PhpSerialize;
 use Drupal\Core\KeyValueStore\KeyValueExpirableFactory;
 use Drupal\simpletest\KernelTestBase;
 use Drupal\user\SharedTempStoreFactory;

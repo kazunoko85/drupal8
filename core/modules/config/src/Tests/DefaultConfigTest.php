@@ -2,14 +2,13 @@
 
 /**
  * @file
- * Contains Drupal\config\Tests\DefaultConfigTest.
+ * Contains \Drupal\config\Tests\DefaultConfigTest.
  */
 
 namespace Drupal\config\Tests;
 
 use Drupal\config_test\TestInstallStorage;
 use Drupal\Core\Config\InstallStorage;
-use Drupal\Core\Config\TypedConfigManager;
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\simpletest\KernelTestBase;
 use Symfony\Component\DependencyInjection\Reference;
@@ -53,12 +52,12 @@ class DefaultConfigTest extends KernelTestBase {
    */
   public function containerBuild(ContainerBuilder $container) {
     parent::containerBuild($container);
-    $container->register('DefaultConfigTest.schema_storage')
+    $container->register('default_config_test.schema_storage')
       ->setClass('\Drupal\config_test\TestInstallStorage')
       ->addArgument(InstallStorage::CONFIG_SCHEMA_DIRECTORY);
 
     $definition = $container->getDefinition('config.typed');
-    $definition->replaceArgument(1, new Reference('DefaultConfigTest.schema_storage'));
+    $definition->replaceArgument(1, new Reference('default_config_test.schema_storage'));
   }
 
   /**

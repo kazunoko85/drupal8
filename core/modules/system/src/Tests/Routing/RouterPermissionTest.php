@@ -2,14 +2,12 @@
 
 /**
  * @file
- * Contains Drupal\system\Tests\Routing\RouterPermissionTest.
+ * Contains \Drupal\system\Tests\Routing\RouterPermissionTest.
  */
 
 namespace Drupal\system\Tests\Routing;
 
-use Drupal\Core\Routing\RequestHelper;
 use Drupal\simpletest\WebTestBase;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 /**
  * Function Tests for the routing permission system.

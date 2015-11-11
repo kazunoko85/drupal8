@@ -433,7 +433,7 @@ class XssTest extends UnitTestCase {
       ),
     );
     // @fixme This dataset currently fails under 5.4 because of
-    //   https://drupal.org/node/1210798 . Restore after its fixed.
+    //   https://www.drupal.org/node/1210798. Restore after its fixed.
     if (version_compare(PHP_VERSION, '5.4.0', '<')) {
       $cases[] = array(
         '<img src=" &#14;  javascript:alert(0)">',
@@ -489,7 +489,7 @@ class XssTest extends UnitTestCase {
   }
 
   /**
-   * Check that strings in HTML attributes are are correctly processed.
+   * Check that strings in HTML attributes are correctly processed.
    *
    * @covers ::attributes
    * @dataProvider providerTestAttributes

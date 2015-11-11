@@ -16,6 +16,23 @@ use Drupal\Core\Render\Element;
  * When the button is pressed, the form will be submitted to Drupal, where it is
  * validated and rebuilt. The submit handler is not invoked.
  *
+ * Properties:
+ * - #limit_validation_errors: An array of form element keys that will block
+ *   form submission when validation for these elements or any child elements
+ *   fails. Specify an empty array to suppress all form validation errors.
+ * - #value: The text to be shown on the button.
+ *
+ *
+ * Usage Example:
+ * @code
+ * $form['actions']['preview'] = array(
+ *   '#type' => 'button',
+ *   '#value => $this->t('Preview'),
+ * );
+ * @endcode
+ *
+ * @see \Drupal\Core\Render\Element\Submit
+ *
  * @FormElement("button")
  */
 class Button extends FormElement {
@@ -76,7 +93,7 @@ class Button extends FormElement {
     if (!empty($element['#button_type'])) {
       $element['#attributes']['class'][] = 'button--' . $element['#button_type'];
     }
-    // @todo Various JavaScript depends on this button class.
+    $element['#attributes']['class'][] = 'js-form-submit';
     $element['#attributes']['class'][] = 'form-submit';
 
     if (!empty($element['#attributes']['disabled'])) {

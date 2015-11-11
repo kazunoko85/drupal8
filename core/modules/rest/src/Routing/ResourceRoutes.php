@@ -8,18 +8,15 @@
 namespace Drupal\rest\Routing;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Routing\RouteSubscriberBase;
 use Drupal\rest\Plugin\Type\ResourcePluginManager;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
  * Subscriber for REST-style routes.
  */
-class ResourceRoutes extends RouteSubscriberBase{
+class ResourceRoutes extends RouteSubscriberBase {
 
   /**
    * The plugin manager for REST plugins.
@@ -74,9 +71,10 @@ class ResourceRoutes extends RouteSubscriberBase{
       $plugin = $this->manager->getInstance(array('id' => $id));
 
       foreach ($plugin->routes() as $name => $route) {
-        $method = $route->getRequirement('_method');
+        // @todo: Are multiple methods possible here?
+        $methods = $route->getMethods();
         // Only expose routes where the method is enabled in the configuration.
-        if ($method && isset($enabled_methods[$method])) {
+        if ($methods && ($method = $methods[0]) && $method && isset($enabled_methods[$method])) {
           $route->setRequirement('_access_rest_csrf',  'TRUE');
 
           // Check that authentication providers are defined.

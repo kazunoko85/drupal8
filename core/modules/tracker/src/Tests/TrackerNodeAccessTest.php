@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\tracker\Tests\TrackerNodeAccessTest.
+ * Contains \Drupal\tracker\Tests\TrackerNodeAccessTest.
  */
 
 namespace Drupal\tracker\Tests;
@@ -45,7 +45,7 @@ class TrackerNodeAccessTest extends WebTestBase {
     $access_user = $this->drupalCreateUser(array('node test view', 'access user profiles'));
 
     // Create user without node test view permission.
-    $no_access_user = $this->drupalCreateuser(array('access user profiles'));
+    $no_access_user = $this->drupalCreateUser(array('access user profiles'));
 
     $this->drupalLogin($access_user);
 

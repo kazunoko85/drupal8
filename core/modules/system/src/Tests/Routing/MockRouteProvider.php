@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal\system\Tests\Routing\MockRouteProvider.
+ * Contains \Drupal\system\Tests\Routing\MockRouteProvider.
  */
 
 namespace Drupal\system\Tests\Routing;
@@ -45,7 +45,7 @@ class MockRouteProvider implements RouteProviderInterface {
   }
 
   /**
-   * Implements \Symfony\Cmf\Component\Routing\RouteProviderInterface::getRouteByName().
+   * {@inheritdoc}
    */
   public function getRouteByName($name) {
     $routes = $this->getRoutesByNames(array($name));
@@ -64,7 +64,7 @@ class MockRouteProvider implements RouteProviderInterface {
   }
 
   /**
-   * Implements \Symfony\Cmf\Component\Routing\RouteProviderInterface::getRoutesByName().
+   * {@inheritdoc}
    */
   public function getRoutesByNames($names) {
     $routes = array();

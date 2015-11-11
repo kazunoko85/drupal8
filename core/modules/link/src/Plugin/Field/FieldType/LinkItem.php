@@ -8,7 +8,6 @@
 namespace Drupal\link\Plugin\Field\FieldType;
 
 use Drupal\Component\Utility\Random;
-use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
@@ -177,11 +176,21 @@ class LinkItem extends FieldItemBase implements LinkItemInterface {
    * {@inheritdoc}
    */
   public function setValue($values, $notify = TRUE) {
+    // Treat the values as property value of the main property, if no array is
+    // given.
+    if (isset($values) && !is_array($values)) {
+      $values = [static::mainPropertyName() => $values];
+    }
+    if (isset($values)) {
+      $values += [
+        'options' => [],
+      ];
+    }
     // Unserialize the values.
     // @todo The storage controller should take care of this, see
     //   SqlContentEntityStorage::loadFieldItems, see
     //   https://www.drupal.org/node/2414835
-    if (isset($values['options']) && is_string($values['options'])) {
+    if (is_string($values['options'])) {
       $values['options'] = unserialize($values['options']);
     }
     parent::setValue($values, $notify);

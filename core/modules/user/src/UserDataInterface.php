@@ -2,12 +2,10 @@
 
 /**
  * @file
- * Contains Drupal\user\UserDataInterface.
+ * Contains \Drupal\user\UserDataInterface.
  */
 
 namespace Drupal\user;
-
-use Drupal\Core\Database\Connection;
 
 /**
  * Defines the user data service interface.

@@ -41,8 +41,17 @@ class EntityForm extends FormBase implements EntityFormInterface {
    * The entity manager.
    *
    * @var \Drupal\Core\Entity\EntityManagerInterface
+   *
+   * @deprecated in Drupal 8.0.0, will be removed before Drupal 9.0.0.
    */
   protected $entityManager;
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
 
   /**
    * The entity being used by this form.
@@ -101,6 +110,12 @@ class EntityForm extends FormBase implements EntityFormInterface {
       $this->init($form_state);
     }
 
+    // Ensure that edit forms have the correct cacheability metadata so they can
+    // be cached.
+    if (!$this->entity->isNew()) {
+      \Drupal::service('renderer')->addCacheableDependency($form, $this->entity);
+    }
+
     // Retrieve the form array using the possibly updated entity in form state.
     $form = $this->form($form, $form_state);
 
@@ -129,7 +144,7 @@ class EntityForm extends FormBase implements EntityFormInterface {
   }
 
   /**
-   * Returns the actual form array to be built.
+   * Gets the actual form array to be built.
    *
    * @see \Drupal\Core\Entity\EntityForm::processForm()
    * @see \Drupal\Core\Entity\EntityForm::afterBuild()
@@ -219,7 +234,6 @@ class EntityForm extends FormBase implements EntityFormInterface {
     $actions['submit'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Save'),
-      '#validate' => array('::validate'),
       '#submit' => array('::submitForm', '::save'),
     );
 
@@ -242,16 +256,6 @@ class EntityForm extends FormBase implements EntityFormInterface {
     }
 
     return $actions;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validate(array $form, FormStateInterface $form_state) {
-    // @todo Remove this.
-    // Execute legacy global validation handlers.
-    $form_state->setValidateHandlers([]);
-    \Drupal::service('form_validator')->executeValidateHandlers($form, $form_state);
   }
 
   /**
@@ -406,6 +410,14 @@ class EntityForm extends FormBase implements EntityFormInterface {
    */
   public function setEntityManager(EntityManagerInterface $entity_manager) {
     $this->entityManager = $entity_manager;
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setEntityTypeManager(EntityTypeManagerInterface $entity_type_manager) {
+    $this->entityTypeManager = $entity_type_manager;
     return $this;
   }
 

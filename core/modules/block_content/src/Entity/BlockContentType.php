@@ -7,9 +7,7 @@
 
 namespace Drupal\block_content\Entity;
 
-use Drupal\Core\Config\Entity\ConfigEntityBase;
 use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\block_content\BlockContentTypeInterface;
 
 /**
@@ -38,6 +36,12 @@ use Drupal\block_content\BlockContentTypeInterface;
  *     "delete-form" = "/admin/structure/block/block-content/manage/{block_content_type}/delete",
  *     "edit-form" = "/admin/structure/block/block-content/manage/{block_content_type}",
  *     "collection" = "/admin/structure/block/block-content/types",
+ *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "revision",
+ *     "description",
  *   }
  * )
  */
