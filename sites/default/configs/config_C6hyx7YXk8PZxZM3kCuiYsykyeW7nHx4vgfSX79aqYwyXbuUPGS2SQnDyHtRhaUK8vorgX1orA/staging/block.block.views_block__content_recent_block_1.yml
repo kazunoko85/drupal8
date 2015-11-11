@@ -1,0 +1,24 @@
+uuid: 0343cb43-5c42-46c8-9900-f8962c9d634d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.content_recent
+  module:
+    - views
+  theme:
+    - murata_theme
+id: views_block__content_recent_block_1
+theme: murata_theme
+region: sidebar_second
+weight: -7
+provider: null
+plugin: 'views_block:content_recent-block_1'
+settings:
+  id: 'views_block:content_recent-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

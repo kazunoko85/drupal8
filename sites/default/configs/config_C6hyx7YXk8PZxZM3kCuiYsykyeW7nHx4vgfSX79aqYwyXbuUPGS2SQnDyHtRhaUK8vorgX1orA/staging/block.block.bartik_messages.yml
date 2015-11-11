@@ -1,6 +1,6 @@
 uuid: d058b46a-6536-41d8-955e-944e2c0dd437
 langcode: ja
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -8,7 +8,7 @@ dependencies:
     - bartik
 id: bartik_messages
 theme: bartik
-region: messages
+region: '-1'
 weight: 0
 provider: null
 plugin: system_messages_block
@@ -17,6 +17,4 @@ settings:
   label: 'Status messages'
   provider: system
   label_display: '0'
-  cache:
-    max_age: -1
 visibility: {  }

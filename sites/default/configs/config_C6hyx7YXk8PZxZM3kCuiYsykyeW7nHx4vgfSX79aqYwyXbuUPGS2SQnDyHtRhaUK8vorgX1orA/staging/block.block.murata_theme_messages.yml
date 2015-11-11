@@ -1,0 +1,20 @@
+uuid: 7172e577-87f0-4262-9b07-7fa7fe4a2d5b
+langcode: ja
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - murata_theme
+id: murata_theme_messages
+theme: murata_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

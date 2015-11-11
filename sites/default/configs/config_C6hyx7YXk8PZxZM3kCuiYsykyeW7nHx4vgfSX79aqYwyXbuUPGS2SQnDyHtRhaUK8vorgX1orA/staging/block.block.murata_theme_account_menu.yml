@@ -1,0 +1,24 @@
+uuid: 2a2ca289-ddec-4c2a-ba03-3b80c84a8a3d
+langcode: ja
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - murata_theme
+id: murata_theme_account_menu
+theme: murata_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

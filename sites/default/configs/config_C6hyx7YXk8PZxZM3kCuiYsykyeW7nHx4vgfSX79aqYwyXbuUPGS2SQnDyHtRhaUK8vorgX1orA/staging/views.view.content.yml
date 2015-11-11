@@ -295,12 +295,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: short
-          custom_date_format: ''
-          timezone: ''
-          plugin_id: date
+          plugin_id: field
           entity_type: node
           entity_field: changed
+          type: timestamp
+          settings:
+            date_format: short
+            custom_date_format: ''
+            timezone: ''
         operations:
           id: operations
           table: node
@@ -563,9 +565,13 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - user
         - 'user.node_grants:view'
+        - user.permissions
       cacheable: false
+      max-age: 0
+      tags: {  }
   page_1:
     display_options:
       path: admin/content/node
@@ -592,6 +598,10 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - user
         - 'user.node_grants:view'
+        - user.permissions
       cacheable: false
+      max-age: 0
+      tags: {  }

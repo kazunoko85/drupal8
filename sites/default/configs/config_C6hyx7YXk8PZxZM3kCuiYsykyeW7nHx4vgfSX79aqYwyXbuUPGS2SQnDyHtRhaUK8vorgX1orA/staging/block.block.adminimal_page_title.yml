@@ -1,0 +1,18 @@
+uuid: c6557f05-973d-4628-a000-e0f53d201303
+langcode: en
+status: true
+dependencies:
+  theme:
+    - adminimal
+id: adminimal_page_title
+theme: adminimal
+region: content
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

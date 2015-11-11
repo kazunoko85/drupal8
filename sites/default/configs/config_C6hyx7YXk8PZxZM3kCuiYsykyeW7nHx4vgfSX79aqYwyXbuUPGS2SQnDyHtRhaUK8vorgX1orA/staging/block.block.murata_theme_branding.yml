@@ -1,0 +1,23 @@
+uuid: 909787e0-069e-4c6d-912b-43d938b3a181
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - murata_theme
+id: murata_theme_branding
+theme: murata_theme
+region: header
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

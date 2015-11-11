@@ -1,0 +1,16 @@
+region: pre_content
+id: seven_secondary_local_tasks
+settings:
+  label: 'Secondary tabs'
+  primary: false
+  secondary: true
+  label_display: '0'
+plugin: local_tasks_block
+visibility: {  }
+weight: 0
+langcode: en
+uuid: f0b01897-f26b-4aeb-9c28-409840c91c30
+theme: seven
+dependencies:
+  theme:
+    - seven

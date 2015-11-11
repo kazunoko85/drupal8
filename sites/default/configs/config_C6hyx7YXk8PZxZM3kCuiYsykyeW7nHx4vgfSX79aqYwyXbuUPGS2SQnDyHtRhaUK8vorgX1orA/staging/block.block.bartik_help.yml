@@ -8,8 +8,8 @@ dependencies:
     - bartik
 id: bartik_help
 theme: bartik
-region: help
-weight: 0
+region: content
+weight: -6
 provider: null
 plugin: help_block
 settings:
@@ -17,6 +17,4 @@ settings:
   label: ヘルプ
   provider: help
   label_display: '0'
-  cache:
-    max_age: -1
 visibility: {  }
