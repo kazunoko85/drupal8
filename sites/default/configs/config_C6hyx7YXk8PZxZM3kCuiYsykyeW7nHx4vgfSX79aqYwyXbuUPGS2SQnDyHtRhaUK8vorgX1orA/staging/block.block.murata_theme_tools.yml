@@ -1,0 +1,24 @@
+uuid: 59f415c3-e181-4075-9647-7136fad228fb
+langcode: ja
+status: true
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - murata_theme
+id: murata_theme_tools
+theme: murata_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

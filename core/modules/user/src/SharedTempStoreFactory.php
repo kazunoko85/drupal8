@@ -2,12 +2,11 @@
 
 /**
  * @file
- * Definition of Drupal\user\SharedTempStoreFactory.
+ * Contains \Drupal\user\SharedTempStoreFactory.
  */
 
 namespace Drupal\user;
 
-use Drupal\Component\Serialization\SerializationInterface;
 use Drupal\Core\KeyValueStore\KeyValueExpirableFactoryInterface;
 use Drupal\Core\Lock\LockBackendInterface;
 use Symfony\Component\HttpFoundation\RequestStack;

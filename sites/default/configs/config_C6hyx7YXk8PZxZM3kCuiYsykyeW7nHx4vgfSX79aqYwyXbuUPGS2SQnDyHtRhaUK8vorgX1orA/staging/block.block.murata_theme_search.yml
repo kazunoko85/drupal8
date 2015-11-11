@@ -1,0 +1,20 @@
+uuid: c3162658-879a-475d-8600-fba0dc7f0696
+langcode: ja
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - murata_theme
+id: murata_theme_search
+theme: murata_theme
+region: sidebar_first
+weight: -1
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+visibility: {  }

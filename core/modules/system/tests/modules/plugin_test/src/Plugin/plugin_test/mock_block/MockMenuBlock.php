@@ -2,12 +2,10 @@
 
 /**
  * @file
- * Definition of Drupal\plugin_test\Plugin\plugin_test\mock_block\MockMenuBlock.
+ * Contains \Drupal\plugin_test\Plugin\plugin_test\mock_block\MockMenuBlock.
  */
 
 namespace Drupal\plugin_test\Plugin\plugin_test\mock_block;
-
-use Drupal\Component\Plugin\PluginBase;
 
 /**
  * Mock implementation of a menu block plugin used by Plugin API unit tests.

@@ -88,7 +88,7 @@ class AliasManagerTest extends UnitTestCase {
    * @covers ::getPathByAlias
    */
   public function testGetPathByAliasNoMatch() {
-    $alias = $this->randomMachineName();
+    $alias = '/' . $this->randomMachineName();
 
     $language = new Language(array('id' => 'en'));
 
@@ -159,7 +159,7 @@ class AliasManagerTest extends UnitTestCase {
   public function testGetAliasByPathWhitelist() {
     $path_part1 = $this->randomMachineName();
     $path_part2 = $this->randomMachineName();
-    $path = $path_part1 . '/' . $path_part2;
+    $path = '/' . $path_part1 . '/' . $path_part2;
 
     $this->setUpCurrentLanguage();
 
@@ -184,7 +184,7 @@ class AliasManagerTest extends UnitTestCase {
   public function testGetAliasByPathNoMatch() {
     $path_part1 = $this->randomMachineName();
     $path_part2 = $this->randomMachineName();
-    $path = $path_part1 . '/' . $path_part2;
+    $path = '/' . $path_part1 . '/' . $path_part2;
 
     $language = $this->setUpCurrentLanguage();
 
@@ -221,7 +221,7 @@ class AliasManagerTest extends UnitTestCase {
   public function testGetAliasByPathMatch() {
     $path_part1 = $this->randomMachineName();
     $path_part2 = $this->randomMachineName();
-    $path = $path_part1 . '/' . $path_part2;
+    $path = '/' . $path_part1 . '/' . $path_part2;
     $alias = $this->randomMachineName();
 
     $language = $this->setUpCurrentLanguage();
@@ -257,9 +257,9 @@ class AliasManagerTest extends UnitTestCase {
    * @covers ::writeCache
    */
   public function testGetAliasByPathCachedMatch() {
-    $path_part1 = $this->randomMachineName();
+    $path_part1 =  $this->randomMachineName();
     $path_part2 = $this->randomMachineName();
-    $path = $path_part1 . '/' . $path_part2;
+    $path = '/' . $path_part1 . '/' . $path_part2;
     $alias = $this->randomMachineName();
 
     $language = $this->setUpCurrentLanguage();
@@ -306,7 +306,7 @@ class AliasManagerTest extends UnitTestCase {
   public function testGetAliasByPathCachedMissLanguage() {
     $path_part1 = $this->randomMachineName();
     $path_part2 = $this->randomMachineName();
-    $path = $path_part1 . '/' . $path_part2;
+    $path = '/' . $path_part1 . '/' . $path_part2;
     $alias = $this->randomMachineName();
 
     $language = $this->setUpCurrentLanguage();
@@ -339,14 +339,10 @@ class AliasManagerTest extends UnitTestCase {
     // Call it twice to test the static cache.
     $this->assertEquals($alias, $this->aliasManager->getAliasByPath($path));
 
-    // This needs to write out the cache.
-    $expected_new_cache = array(
-      $cached_language->getId() => array($path),
-      $language->getId() => array($path),
-    );
-    $this->cache->expects($this->once())
-      ->method('set')
-      ->with($this->cacheKey, $expected_new_cache, (int) $_SERVER['REQUEST_TIME'] + (60 * 60 * 24));
+    // There is already a cache entry, so this should not write out to the
+    // cache.
+    $this->cache->expects($this->never())
+      ->method('set');
     $this->aliasManager->writeCache();
   }
 
@@ -359,7 +355,7 @@ class AliasManagerTest extends UnitTestCase {
   public function testGetAliasByPathCachedMissNoAlias() {
     $path_part1 = $this->randomMachineName();
     $path_part2 = $this->randomMachineName();
-    $path = $path_part1 . '/' . $path_part2;
+    $path = '/' . $path_part1 . '/' . $path_part2;
     $cached_path = $this->randomMachineName();
     $cached_alias = $this->randomMachineName();
 
@@ -407,7 +403,7 @@ class AliasManagerTest extends UnitTestCase {
   public function testGetAliasByPathUncachedMissNoAlias() {
     $path_part1 = $this->randomMachineName();
     $path_part2 = $this->randomMachineName();
-    $path = $path_part1 . '/' . $path_part2;
+    $path = '/' . $path_part1 . '/' . $path_part2;
     $cached_path = $this->randomMachineName();
     $cached_alias = $this->randomMachineName();
 
@@ -441,13 +437,10 @@ class AliasManagerTest extends UnitTestCase {
     // Call it twice to test the static cache.
     $this->assertEquals($path, $this->aliasManager->getAliasByPath($path));
 
-    // This needs to write out the cache.
-    $expected_new_cache = array(
-      $language->getId() => array($cached_path, $path),
-    );
-    $this->cache->expects($this->once())
-      ->method('set')
-      ->with($this->cacheKey, $expected_new_cache, (int) $_SERVER['REQUEST_TIME'] + (60 * 60 * 24));
+    // There is already a cache entry, so this should not write out to the
+    // cache.
+    $this->cache->expects($this->never())
+      ->method('set');
     $this->aliasManager->writeCache();
   }
 
@@ -455,8 +448,8 @@ class AliasManagerTest extends UnitTestCase {
    * @covers ::cacheClear
    */
   public function testCacheClear() {
-    $path = 'path';
-    $alias = 'alias';
+    $path = '/path';
+    $alias = '/alias';
     $language = $this->setUpCurrentLanguage();
     $this->aliasStorage->expects($this->exactly(2))
       ->method('lookupPathAlias')
@@ -497,7 +490,7 @@ class AliasManagerTest extends UnitTestCase {
   public function testGetAliasByPathUncachedMissWithAlias() {
     $path_part1 = $this->randomMachineName();
     $path_part2 = $this->randomMachineName();
-    $path = $path_part1 . '/' . $path_part2;
+    $path = '/' . $path_part1 . '/' . $path_part2;
     $cached_path = $this->randomMachineName();
     $cached_no_alias_path = $this->randomMachineName();
     $cached_alias = $this->randomMachineName();
@@ -533,13 +526,10 @@ class AliasManagerTest extends UnitTestCase {
     // Call it twice to test the static cache.
     $this->assertEquals($new_alias, $this->aliasManager->getAliasByPath($path));
 
-    // This needs to write out the cache.
-    $expected_new_cache = array(
-      $language->getId() => array($cached_path, $path, $cached_no_alias_path),
-    );
-    $this->cache->expects($this->once())
-      ->method('set')
-      ->with($this->cacheKey, $expected_new_cache, (int) $_SERVER['REQUEST_TIME'] + (60 * 60 * 24));
+    // There is already a cache entry, so this should not write out to the
+    // cache.
+    $this->cache->expects($this->never())
+      ->method('set');
     $this->aliasManager->writeCache();
   }
 

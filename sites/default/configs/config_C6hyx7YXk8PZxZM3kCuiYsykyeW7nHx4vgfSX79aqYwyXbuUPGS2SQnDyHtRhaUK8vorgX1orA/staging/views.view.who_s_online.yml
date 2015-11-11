@@ -199,7 +199,10 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }
   who_s_online_block:
     display_plugin: block
     id: who_s_online_block
@@ -213,4 +216,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - user.permissions
       cacheable: false
+      max-age: -1
+      tags: {  }

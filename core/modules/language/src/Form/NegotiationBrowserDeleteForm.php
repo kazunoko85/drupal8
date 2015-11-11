@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\language\Form\NegotiationConfigureBrowserDeleteForm.
+ * Contains \Drupal\language\Form\NegotiationBrowserDeleteForm.
  */
 
 namespace Drupal\language\Form;
@@ -11,7 +11,6 @@ use Drupal\Core\Form\ConfigFormBaseTrait;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Defines a confirmation form for deleting a browser language negotiation mapping.

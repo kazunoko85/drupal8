@@ -1,0 +1,14 @@
+id: bartik_local_actions
+weight: -1
+plugin: local_actions_block
+region: content
+settings:
+  label: 'Primary admin actions'
+  label_display: '0'
+visibility: {  }
+langcode: en
+uuid: 59ff8bbc-63a8-4e62-8c00-cc814ac2ffe2
+theme: bartik
+dependencies:
+  theme:
+    - bartik

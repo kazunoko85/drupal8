@@ -1,0 +1,14 @@
+id: bartik_page_title
+plugin: page_title_block
+region: content
+settings:
+  label: 'Page title'
+  label_display: '0'
+visibility: {  }
+weight: -50
+langcode: en
+uuid: e466c192-9371-4e9a-8c16-22df5ed37de6
+theme: bartik
+dependencies:
+  theme:
+    - bartik

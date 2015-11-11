@@ -2,14 +2,13 @@
 
 /**
  * @file
- * Definition of Drupal\config\Tests\Storage\CachedStorageTest.
+ * Contains \Drupal\config\Tests\Storage\CachedStorageTest.
  */
 
 namespace Drupal\config\Tests\Storage;
 
 use Drupal\Core\Config\FileStorage;
 use Drupal\Core\Config\CachedStorage;
-use Drupal\Core\Database\Database;
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
@@ -36,7 +35,10 @@ class CachedStorageTest extends ConfigStorageTestBase {
 
   protected function setUp() {
     parent::setUp();
-    $this->fileStorage = new FileStorage($this->configDirectories[CONFIG_ACTIVE_DIRECTORY]);
+    // Create a directory.
+    $dir = $this->publicFilesDirectory . '/config';
+    mkdir($dir);
+    $this->fileStorage = new FileStorage($dir);
     $this->storage = new CachedStorage($this->fileStorage, \Drupal::service('cache.config'));
     $this->cache = \Drupal::service('cache_factory')->get('config');
     // ::listAll() verifications require other configuration data to exist.

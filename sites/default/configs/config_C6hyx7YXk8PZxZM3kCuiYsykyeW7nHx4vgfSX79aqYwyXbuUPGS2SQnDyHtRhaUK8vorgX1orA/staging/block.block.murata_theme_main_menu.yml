@@ -1,0 +1,24 @@
+uuid: ff723714-f864-4c09-9100-a4dd8e8482c2
+langcode: ja
+status: false
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - murata_theme
+id: murata_theme_main_menu
+theme: murata_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility: {  }

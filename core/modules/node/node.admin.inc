@@ -5,7 +5,6 @@
  * Content administration and module settings user interface.
  */
 
-use Drupal\Core\Language\Language;
 use Drupal\node\NodeInterface;
 use Drupal\node\Entity\Node;
 
@@ -152,10 +151,12 @@ function _node_mass_update_batch_process(array $nodes, array $updates, $load, $r
  * @param bool $success
  *   A boolean indicating whether the batch mass update operation successfully
  *   concluded.
- * @param int $results
- *   The number of nodes updated via the batch mode process.
+ * @param string[] $results
+ *   An array of rendered links to nodes updated via the batch mode process.
  * @param array $operations
  *   An array of function calls (not used in this function).
+ *
+ * @see _node_mass_update_batch_process()
  */
 function _node_mass_update_batch_finished($success, $results, $operations) {
   if ($success) {

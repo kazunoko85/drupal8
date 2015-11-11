@@ -1,0 +1,20 @@
+uuid: a03cdba9-59cc-4673-8949-73ae62a9e491
+langcode: ja
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - murata_theme
+id: murata_theme_help
+theme: murata_theme
+region: '-1'
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

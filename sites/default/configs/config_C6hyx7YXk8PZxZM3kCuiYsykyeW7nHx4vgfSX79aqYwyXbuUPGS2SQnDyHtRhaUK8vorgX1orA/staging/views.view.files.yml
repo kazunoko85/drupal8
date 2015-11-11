@@ -449,12 +449,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: medium
-          custom_date_format: ''
-          timezone: ''
-          plugin_id: date
+          plugin_id: field
           entity_type: file
           entity_field: created
+          type: timestamp
+          settings:
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
         changed:
           id: changed
           table: file_managed
@@ -503,12 +505,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: medium
-          custom_date_format: ''
-          timezone: ''
-          plugin_id: date
+          plugin_id: field
           entity_type: file
           entity_field: changed
+          type: timestamp
+          settings:
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
         count:
           id: count
           table: file_usage
@@ -718,7 +722,11 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
+        - user.permissions
       cacheable: false
+      max-age: 0
+      tags: {  }
   page_1:
     display_plugin: page
     id: page_1
@@ -752,7 +760,11 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
+        - user.permissions
       cacheable: false
+      max-age: 0
+      tags: {  }
   page_2:
     display_plugin: page
     id: page_2
@@ -1018,7 +1030,7 @@ display:
             title_enable: false
             title: All
           title_enable: true
-          title: 'File usage information for %1'
+          title: 'File usage information for {{ arguments.fid }}'
           default_argument_type: fixed
           default_argument_options:
             argument: ''
@@ -1106,4 +1118,8 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - url.query_args
+        - user.permissions
       cacheable: false
+      max-age: 0
+      tags: {  }

@@ -1,6 +1,6 @@
 uuid: 0c3ca2fd-0a3c-47c4-8900-aa0b5bd32f20
 langcode: ja
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -8,7 +8,7 @@ dependencies:
     - seven
 id: seven_messages
 theme: seven
-region: messages
+region: '-1'
 weight: 0
 provider: null
 plugin: system_messages_block
@@ -17,6 +17,4 @@ settings:
   label: 'Status messages'
   provider: system
   label_display: '0'
-  cache:
-    max_age: -1
 visibility: {  }

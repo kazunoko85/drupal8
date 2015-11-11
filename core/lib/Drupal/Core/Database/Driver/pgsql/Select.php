@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\Core\Database\Driver\pgsql\Select
+ * Contains \Drupal\Core\Database\Driver\pgsql\Select.
  */
 
 namespace Drupal\Core\Database\Driver\pgsql;
@@ -14,6 +14,9 @@ use Drupal\Core\Database\Query\Select as QuerySelect;
  * @{
  */
 
+/**
+ * PostgreSQL implementation of \Drupal\Core\Database\Query\Select.
+ */
 class Select extends QuerySelect {
 
   public function orderRandom() {

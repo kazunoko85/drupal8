@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\comment\Plugin\views\row\Rss.
+ * Contains \Drupal\comment\Plugin\views\row\Rss.
  */
 
 namespace Drupal\comment\Plugin\views\row;
@@ -84,8 +84,6 @@ class Rss extends RssPluginBase {
       return;
     }
 
-    $item_text = '';
-
     $comment->link = $comment->url('canonical', array('absolute' => TRUE));
     $comment->rss_namespaces = array();
     $comment->rss_elements = array(
@@ -113,16 +111,16 @@ class Rss extends RssPluginBase {
       $this->view->style_plugin->namespaces = array_merge($this->view->style_plugin->namespaces, $comment->rss_namespaces);
     }
 
+    $item = new \stdClass();
     if ($view_mode != 'title') {
       // We render comment contents.
-      $item_text .= drupal_render_root($build);
+      $item->description = $build;
     }
-
-    $item = new \stdClass();
-    $item->description = $item_text;
     $item->title = $comment->label();
     $item->link = $comment->link;
-    $item->elements = $comment->rss_elements;
+    // Provide a reference so that the render call in
+    // template_preprocess_views_view_row_rss() can still access it.
+    $item->elements = &$comment->rss_elements;
     $item->cid = $comment->id();
 
     $build = array(
@@ -131,7 +129,7 @@ class Rss extends RssPluginBase {
       '#options' => $this->options,
       '#row' => $item,
     );
-    return drupal_render_root($build);
+    return $build;
   }
 
 }

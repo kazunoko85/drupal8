@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains Drupal.
+ * Contains \Drupal.
  */
 
 use Drupal\Core\DependencyInjection\ContainerNotInitializedException;
@@ -81,7 +81,7 @@ class Drupal {
   /**
    * The current system version.
    */
-  const VERSION = '8.0.0-beta10';
+  const VERSION = '8.0.0-rc3';
 
   /**
    * Core API compatibility.
@@ -120,9 +120,9 @@ class Drupal {
   /**
    * Returns the currently active global container.
    *
-   * @throws \Drupal\Core\DependencyInjection\ContainerNotInitializedException
-   *
    * @return \Symfony\Component\DependencyInjection\ContainerInterface|null
+   *
+   * @throws \Drupal\Core\DependencyInjection\ContainerNotInitializedException
    */
   public static function getContainer() {
     if (static::$container === NULL) {
@@ -150,6 +150,7 @@ class Drupal {
    *
    * @param string $id
    *   The ID of the service to retrieve.
+   *
    * @return mixed
    *   The specified service.
    */
@@ -395,7 +396,7 @@ class Drupal {
   /**
    * Returns the default http client.
    *
-   * @return \GuzzleHttp\ClientInterface
+   * @return \GuzzleHttp\Client
    *   A guzzle http client instance.
    */
   public static function httpClient() {
@@ -459,7 +460,7 @@ class Drupal {
    *
    * Use the typed data manager service for creating typed data objects.
    *
-   * @return \Drupal\Core\TypedData\TypedDataManager
+   * @return \Drupal\Core\TypedData\TypedDataManagerInterface
    *   The typed data manager.
    *
    * @see \Drupal\Core\TypedData\TypedDataManager::create()
@@ -504,17 +505,26 @@ class Drupal {
    *   (optional) An associative array of parameter names and values.
    * @param array $options
    *   (optional) An associative array of additional options.
+   * @param bool $collect_bubbleable_metadata
+   *   (optional) Defaults to FALSE. When TRUE, both the generated URL and its
+   *   associated bubbleable metadata are returned.
    *
-   * @return string
-   *   The generated URL for the given route.
+   * @return string|\Drupal\Core\GeneratedUrl
+   *   A string containing a URL to the given path.
+   *   When $collect_bubbleable_metadata is TRUE, a GeneratedUrl object is
+   *   returned, containing the generated URL plus bubbleable metadata.
    *
    * @see \Drupal\Core\Routing\UrlGeneratorInterface::generateFromRoute()
    * @see \Drupal\Core\Url
    * @see \Drupal\Core\Url::fromRoute()
    * @see \Drupal\Core\Url::fromUri()
+   *
+   * @deprecated as of Drupal 8.0.x, will be removed before Drupal 9.0.0.
+   *   Instead create a \Drupal\Core\Url object directly, for example using
+   *   Url::fromRoute().
    */
-  public static function url($route_name, $route_parameters = array(), $options = array()) {
-    return static::getContainer()->get('url_generator')->generateFromRoute($route_name, $route_parameters, $options);
+  public static function url($route_name, $route_parameters = array(), $options = array(), $collect_bubbleable_metadata = FALSE) {
+    return static::getContainer()->get('url_generator')->generateFromRoute($route_name, $route_parameters, $options, $collect_bubbleable_metadata);
   }
 
   /**
@@ -538,8 +548,9 @@ class Drupal {
    * @param \Drupal\Core\Url $url
    *   The URL object used for the link.
    *
-   * @return string
-   *   An HTML string containing a link to the given route and parameters.
+   * @return \Drupal\Core\GeneratedLink
+   *   A GeneratedLink object containing a link to the given route and
+   *   parameters and bubbleable metadata.
    *
    * @see \Drupal\Core\Utility\LinkGeneratorInterface::generate()
    * @see \Drupal\Core\Url
@@ -675,6 +686,16 @@ class Drupal {
    */
   public static function destination() {
     return static::getContainer()->get('redirect.destination');
+  }
+
+  /**
+   * Returns the entity definition update manager.
+   *
+   * @return \Drupal\Core\Entity\EntityDefinitionUpdateManagerInterface
+   *   The entity definition update manager.
+   */
+  public static function entityDefinitionUpdateManager() {
+    return static::getContainer()->get('entity.definition_update_manager');
   }
 
 }

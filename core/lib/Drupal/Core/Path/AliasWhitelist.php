@@ -9,7 +9,6 @@ namespace Drupal\Core\Path;
 
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Cache\CacheCollector;
-use Drupal\Core\Database\Connection;
 use Drupal\Core\State\StateInterface;
 use Drupal\Core\Lock\LockBackendInterface;
 
@@ -107,7 +106,7 @@ class AliasWhitelist extends CacheCollector implements AliasWhitelistInterface {
    * {@inheritdoc}
    */
   public function resolveCacheMiss($root) {
-    $exists = $this->aliasStorage->pathHasMatchingAlias($root);
+    $exists = $this->aliasStorage->pathHasMatchingAlias('/' . $root);
     $this->storage[$root] = $exists;
     $this->persist($root);
     if ($exists) {

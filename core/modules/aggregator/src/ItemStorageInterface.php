@@ -2,12 +2,11 @@
 
 /**
  * @file
- * Contains Drupal\aggregator\ItemStorageInterface.
+ * Contains \Drupal\aggregator\ItemStorageInterface.
  */
 
 namespace Drupal\aggregator;
 
-use Drupal\aggregator\Entity\Item;
 use Drupal\Core\Entity\EntityStorageInterface;
 
 /**

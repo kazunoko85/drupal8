@@ -3,7 +3,6 @@ langcode: ja
 status: true
 dependencies:
   module:
-    - entity_reference
     - node
 id: node.field_tags
 field_name: field_tags
@@ -11,7 +10,7 @@ entity_type: node
 type: entity_reference
 settings:
   target_type: taxonomy_term
-module: entity_reference
+module: core
 locked: false
 cardinality: -1
 translatable: true

@@ -2,12 +2,12 @@
 
 /**
  * @file
- * Definition of Drupal\taxonomy\Tests\TermTranslationUITest.
+ * Contains \Drupal\taxonomy\Tests\TermTranslationUITest.
  */
 
 namespace Drupal\taxonomy\Tests;
 
-use Drupal\content_translation\Tests\ContentTranslationUITest;
+use Drupal\content_translation\Tests\ContentTranslationUITestBase;
 use Drupal\Core\Language\LanguageInterface;
 
 /**
@@ -15,7 +15,7 @@ use Drupal\Core\Language\LanguageInterface;
  *
  * @group taxonomy
  */
-class TermTranslationUITest extends ContentTranslationUITest {
+class TermTranslationUITest extends ContentTranslationUITestBase {
 
   /**
    * The vocabulary used for creating terms.
@@ -38,7 +38,7 @@ class TermTranslationUITest extends ContentTranslationUITest {
   }
 
   /**
-   * Overrides \Drupal\content_translation\Tests\ContentTranslationUITest::setupBundle().
+   * {@inheritdoc}
    */
   protected function setupBundle() {
     parent::setupBundle();
@@ -55,14 +55,14 @@ class TermTranslationUITest extends ContentTranslationUITest {
   }
 
   /**
-   * Overrides \Drupal\content_translation\Tests\ContentTranslationUITest::getTranslatorPermission().
+   * {@inheritdoc}
    */
   protected function getTranslatorPermissions() {
     return array_merge(parent::getTranslatorPermissions(), array('administer taxonomy'));
   }
 
   /**
-   * Overrides \Drupal\content_translation\Tests\ContentTranslationUITest::getNewEntityValues().
+   * {@inheritdoc}
    */
   protected function getNewEntityValues($langcode) {
     return array('name' => $this->randomMachineName()) + parent::getNewEntityValues($langcode);
@@ -88,7 +88,7 @@ class TermTranslationUITest extends ContentTranslationUITest {
   }
 
   /**
-   * Overrides \Drupal\content_translation\Tests\ContentTranslationUITest::testTranslationUI().
+   * {@inheritdoc}
    */
   public function testTranslationUI() {
     parent::testTranslationUI();

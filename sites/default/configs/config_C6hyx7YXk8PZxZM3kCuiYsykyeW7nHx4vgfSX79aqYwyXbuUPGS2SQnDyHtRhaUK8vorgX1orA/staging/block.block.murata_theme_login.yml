@@ -1,0 +1,20 @@
+uuid: 8078c95e-4468-4a57-b900-f7011fbd054a
+langcode: ja
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - murata_theme
+id: murata_theme_login
+theme: murata_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }

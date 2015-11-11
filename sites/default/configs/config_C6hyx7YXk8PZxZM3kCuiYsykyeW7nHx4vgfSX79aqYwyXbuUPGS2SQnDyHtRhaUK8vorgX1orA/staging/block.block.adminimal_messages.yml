@@ -1,6 +1,6 @@
 uuid: 08ed67d4-ab04-4c5f-b805-5f87630e8183
 langcode: ja
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -8,8 +8,8 @@ dependencies:
     - adminimal
 id: adminimal_messages
 theme: adminimal
-region: messages
-weight: 0
+region: '-1'
+weight: -6
 provider: null
 plugin: system_messages_block
 settings:
@@ -17,6 +17,4 @@ settings:
   label: 'Status messages'
   provider: system
   label_display: '0'
-  cache:
-    max_age: -1
 visibility: {  }

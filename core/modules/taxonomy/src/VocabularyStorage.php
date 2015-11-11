@@ -2,12 +2,11 @@
 
 /**
  * @file
- * Definition of Drupal\taxonomy\VocabularyStorage.
+ * Contains \Drupal\taxonomy\VocabularyStorage.
  */
 
 namespace Drupal\taxonomy;
 
-use Drupal\Core\Cache\Cache;
 use Drupal\Core\Config\Entity\ConfigEntityStorage;
 
 /**

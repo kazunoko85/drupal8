@@ -45,7 +45,7 @@ class HandlerTest extends ViewTestBase {
   }
 
   /**
-   * Overrides Drupal\views\Tests\ViewTestBase::viewsData().
+   * {@inheritdoc}
    */
   protected function viewsData() {
     $data = parent::viewsData();
@@ -66,26 +66,6 @@ class HandlerTest extends ViewTestBase {
     }
 
     return $data;
-  }
-
-  /**
-   * @todo
-   * This should probably moved to a filter related test.
-   */
-  function testFilterInOperatorUi() {
-    $admin_user = $this->drupalCreateUser(array('administer views', 'administer site configuration'));
-    $this->drupalLogin($admin_user);
-
-    $path = 'admin/structure/views/nojs/handler/test_filter_in_operator_ui/default/filter/type';
-    $this->drupalGet($path);
-    $this->assertFieldByName('options[expose][reduce]', FALSE);
-
-    $edit = array(
-      'options[expose][reduce]' => TRUE,
-    );
-    $this->drupalPostForm($path, $edit, t('Apply'));
-    $this->drupalGet($path);
-    $this->assertFieldByName('options[expose][reduce]', TRUE);
   }
 
   /**

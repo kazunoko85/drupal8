@@ -10,8 +10,6 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
-  devel: 0
-  devel_node_access: 0
   editor: 0
   entity_reference: 0
   field: 0
@@ -52,5 +50,6 @@ theme:
   seven: 0
   adminimal: 0
   omega: 0
-  default_omega_starterkit: 0
+  murata_theme: 0
+  stable: 0
 langcode: ja

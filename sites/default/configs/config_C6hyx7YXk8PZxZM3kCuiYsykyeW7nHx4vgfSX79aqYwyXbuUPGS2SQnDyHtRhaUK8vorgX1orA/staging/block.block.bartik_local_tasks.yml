@@ -1,0 +1,14 @@
+id: bartik_local_tasks
+weight: -7
+plugin: local_tasks_block
+region: content
+settings:
+  label: Tabs
+  label_display: '0'
+visibility: {  }
+langcode: en
+uuid: 7a6644b6-d479-4503-922c-4442db03762c
+theme: bartik
+dependencies:
+  theme:
+    - bartik

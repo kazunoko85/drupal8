@@ -2,12 +2,10 @@
 
 /**
  * @file
- * Definition of Drupal\Core\Ajax\AppendCommand.
+ * Contains \Drupal\Core\Ajax\AppendCommand.
  */
 
 namespace Drupal\Core\Ajax;
-
-use Drupal\Core\Ajax\InsertCommand;
 
 /**
  * An AJAX command for calling the jQuery append() method.

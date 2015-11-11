@@ -8,7 +8,6 @@
 namespace Drupal\views\Plugin\views\display;
 
 use Drupal\Component\Utility\UrlHelper;
-use Drupal\Core\Access\AccessManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Routing\UrlGeneratorTrait;
@@ -17,7 +16,6 @@ use Drupal\Core\Routing\RouteCompiler;
 use Drupal\Core\Routing\RouteProviderInterface;
 use Drupal\Core\Url;
 use Drupal\views\Views;
-
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -29,7 +27,7 @@ use Symfony\Component\Routing\RouteCollection;
  *
  * @see \Drupal\views\EventSubscriber\RouteSubscriber
  */
-abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouterInterface {
+abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouterInterface, DisplayMenuInterface {
 
   use UrlGeneratorTrait;
 
@@ -82,7 +80,7 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
   }
 
   /**
-   * Overrides \Drupal\views\Plugin\views\display\DisplayPluginBase::hasPath().
+   * {@inheritdoc}
    */
   public function hasPath() {
     return TRUE;
@@ -136,8 +134,10 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
   protected function getRoute($view_id, $display_id) {
     $defaults = array(
       '_controller' => 'Drupal\views\Routing\ViewPageController::handle',
+      '_title' => $this->view->getTitle(),
       'view_id' => $view_id,
       'display_id' => $display_id,
+      '_view_display_show_admin_links' => $this->getOption('show_admin_links'),
     );
 
     // @todo How do we apply argument validation?
@@ -161,6 +161,7 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
         // handler.
         $arg_id = 'arg_' . $arg_counter++;
         $bits[$pos] = '{' . $arg_id . '}';
+        $argument_map[$arg_id] = $arg_id;
       }
       elseif (strpos($bit, '%') === 0) {
         // Use the name defined in the path.
@@ -178,6 +179,7 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
       // In contrast to the previous loop add the defaults here, as % was not
       // specified, which means the argument is optional.
       $defaults[$arg_id] = NULL;
+      $argument_map[$arg_id] = $arg_id;
       $bits[] = $bit;
     }
 
@@ -203,6 +205,12 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
 
     // Set the argument map, in order to support named parameters.
     $route->setOption('_view_argument_map', $argument_map);
+    $route->setOption('_view_display_plugin_id', $this->getPluginId());
+    $route->setOption('_view_display_plugin_class', get_called_class());
+    $route->setOption('_view_display_show_admin_links', $this->getOption('show_admin_links'));
+
+    // Store whether the view will return a response.
+    $route->setOption('returns_response', !empty($this->getPluginDefinition()['returns_response']));
 
     return $route;
   }
@@ -334,7 +342,7 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
   }
 
   /**
-   * Overrides \Drupal\views\Plugin\views\display\DisplayPluginBase::execute().
+   * {@inheritdoc}
    */
   public function execute() {
     // Prior to this being called, the $view should already be set to this
@@ -351,7 +359,7 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
   }
 
   /**
-   * Overrides \Drupal\views\Plugin\views\display\DisplayPluginBase::optionsSummary().
+   * {@inheritdoc}
    */
   public function optionsSummary(&$categories, &$options) {
     parent::optionsSummary($categories, $options);
@@ -381,7 +389,7 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
   }
 
   /**
-   * Overrides \Drupal\views\Plugin\views\display\DisplayPluginBase::buildOptionsForm().
+   * {@inheritdoc}
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
@@ -405,7 +413,7 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
   }
 
   /**
-   * Overrides \Drupal\views\Plugin\views\display\DisplayPluginBase::validateOptionsForm().
+   * {@inheritdoc}
    */
   public function validateOptionsForm(&$form, FormStateInterface $form_state) {
     parent::validateOptionsForm($form, $form_state);
@@ -422,7 +430,7 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
   }
 
   /**
-   * Overrides \Drupal\views\Plugin\views\display\DisplayPluginBase::submitOptionsForm().
+   * {@inheritdoc}
    */
   public function submitOptionsForm(&$form, FormStateInterface $form_state) {
     parent::submitOptionsForm($form, $form_state);
@@ -510,6 +518,18 @@ abstract class PathPluginBase extends DisplayPluginBase implements DisplayRouter
    */
   public function getAlteredRouteNames() {
     return $this->state->get('views.view_route_names') ?: array();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function remove() {
+    $menu_links = $this->getMenuLinks();
+    /** @var \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager */
+    $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+    foreach ($menu_links as $menu_link_id => $menu_link) {
+      $menu_link_manager->removeDefinition("views_view:$menu_link_id");
+    }
   }
 
 }

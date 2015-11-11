@@ -8,7 +8,6 @@
 namespace Drupal\system\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\system\MenuInterface;
 
 /**
@@ -24,6 +23,12 @@ use Drupal\system\MenuInterface;
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label"
+ *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "description",
+ *     "locked",
  *   }
  * )
  */

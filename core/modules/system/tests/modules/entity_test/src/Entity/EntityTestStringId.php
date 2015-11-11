@@ -20,9 +20,13 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *     "form" = {
  *       "default" = "Drupal\entity_test\EntityTestForm"
  *     },
- *     "translation" = "Drupal\content_translation\ContentTranslationHandler"
+ *     "translation" = "Drupal\content_translation\ContentTranslationHandler",
+ *     "route_provider" = {
+ *       "html" = "Drupal\Core\Entity\Routing\DefaultHtmlRouteProvider",
+ *     },
  *   },
  *   base_table = "entity_test_string",
+ *   admin_permission = "administer entity_test content",
  *   entity_keys = {
  *     "id" = "id",
  *     "uuid" = "uuid",
@@ -45,7 +49,10 @@ class EntityTestStringId extends EntityTest {
     $fields['id'] = BaseFieldDefinition::create('string')
       ->setLabel(t('ID'))
       ->setDescription(t('The ID of the test entity.'))
-      ->setReadOnly(TRUE);
+      ->setReadOnly(TRUE)
+      // In order to work around the InnoDB 191 character limit on utf8mb4
+      // primary keys, we set the character set for the field to ASCII.
+      ->setSetting('is_ascii', TRUE);
     return $fields;
   }
 

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\taxonomy\Plugin\views\wizard\TaxonomyTerm.
+ * Contains \Drupal\taxonomy\Plugin\views\wizard\TaxonomyTerm.
  */
 
 namespace Drupal\taxonomy\Plugin\views\wizard;
@@ -21,7 +21,7 @@ use Drupal\views\Plugin\views\wizard\WizardPluginBase;
 class TaxonomyTerm extends WizardPluginBase {
 
   /**
-   * Overrides Drupal\views\Plugin\views\wizard\WizardPluginBase::defaultDisplayOptions().
+   * {@inheritdoc}
    */
   protected function defaultDisplayOptions() {
     $display_options = parent::defaultDisplayOptions();

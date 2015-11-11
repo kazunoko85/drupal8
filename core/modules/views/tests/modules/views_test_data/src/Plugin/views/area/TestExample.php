@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\views_test_data\Plugin\views\area\TestExample
+ * Contains \Drupal\views_test_data\Plugin\views\area\TestExample.
  */
 
 namespace Drupal\views_test_data\Plugin\views\area;
@@ -28,7 +28,7 @@ class TestExample extends AreaPluginBase {
   }
 
   /**
-   * Overrides Drupal\views\Plugin\views\area\AreaPluginBase::option_definition().
+   * {@inheritdoc}
    */
   public function defineOptions() {
     $options = parent::defineOptions();
@@ -39,7 +39,7 @@ class TestExample extends AreaPluginBase {
   }
 
   /**
-   * Overrides Drupal\views\Plugin\views\area\AreaPluginBase::buildOptionsForm()
+   * {@inheritdoc}
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
@@ -47,7 +47,7 @@ class TestExample extends AreaPluginBase {
   }
 
   /**
-   * Implements \Drupal\views\Plugin\views\area\AreaPluginBase::render().
+   * {@inheritdoc}
    */
   public function render($empty = FALSE) {
     if (!$empty || !empty($this->options['empty'])) {

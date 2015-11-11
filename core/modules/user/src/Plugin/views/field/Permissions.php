@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\user\Plugin\views\field\Permissions.
+ * Contains \Drupal\user\Plugin\views\field\Permissions.
  */
 
 namespace Drupal\user\Plugin\views\field;
@@ -66,7 +66,7 @@ class Permissions extends PrerenderList {
   }
 
   /**
-   * Overrides Drupal\views\Plugin\views\field\FieldPluginBase::init().
+   * {@inheritdoc}
    */
   public function init(ViewExecutable $view, DisplayPluginBase $display, array &$options = NULL) {
     parent::init($view, $display, $options);

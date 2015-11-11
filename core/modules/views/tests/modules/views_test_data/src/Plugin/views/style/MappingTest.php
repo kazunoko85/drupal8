@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\views_test_data\Plugin\views\style\MappingTest;
+ * Contains \Drupal\views_test_data\Plugin\views\style\MappingTest.
  */
 
 namespace Drupal\views_test_data\Plugin\views\style;
@@ -26,7 +26,7 @@ use Drupal\views\Plugin\views\field\NumericField;
 class MappingTest extends Mapping {
 
   /**
-   * Overrides Drupal\views\Plugin\views\style\Mapping::defineMapping().
+   * {@inheritdoc}
    */
   protected function defineMapping() {
     return array(

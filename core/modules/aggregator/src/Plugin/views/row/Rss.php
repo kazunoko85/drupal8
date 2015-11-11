@@ -50,7 +50,6 @@ class Rss extends RssPluginBase {
 
     $item = new \stdClass();
     foreach ($entity as $name => $field) {
-      // views_view_row_rss takes care about the escaping.
       $item->{$name} = $field->value;
     }
 
@@ -79,7 +78,7 @@ class Rss extends RssPluginBase {
       '#options' => $this->options,
       '#row' => $item,
     );
-    return drupal_render_root($build);
+    return $build;
   }
 
 }

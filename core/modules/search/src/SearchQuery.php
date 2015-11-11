@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Definition of Drupal\search\SearchQuery.
+ * Contains \Drupal\search\SearchQuery.
  *
  * Search query extender and helper functions.
  */
@@ -12,7 +12,6 @@ namespace Drupal\search;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Database\Query\SelectExtender;
 use Drupal\Core\Database\Query\SelectInterface;
-use Drupal\Core\Database\StatementEmpty;
 
 /**
  * Performs a query on the full-text search index for a word or words.
@@ -196,9 +195,9 @@ class SearchQuery extends SelectExtender {
   /**
    * Sets the search query expression.
    *
-   * @param $expression
+   * @param string $expression
    *   A search string, which can contain keywords and options.
-   * @param $type
+   * @param string $type
    *   The search type. This maps to {search_index}.type in the database.
    *
    * @return $this
@@ -464,7 +463,7 @@ class SearchQuery extends SelectExtender {
   }
 
   /**
-   * {@inhertidoc}
+   * {@inheritdoc}
    */
   public function preExecute(SelectInterface $query = NULL) {
     if (!$this->executedPrepare) {
@@ -547,7 +546,7 @@ class SearchQuery extends SelectExtender {
    * Error and warning conditions can apply. Call getStatus() after calling
    * this method to retrieve them.
    *
-   * @return
+   * @return \Drupal\Core\Database\StatementInterface|null
    *   A query result set containing the results of the query.
    */
   public function execute() {

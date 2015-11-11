@@ -1,13 +1,20 @@
+/**
+ * @file
+ * Autocomplete based on jQuery UI.
+ */
+
 (function ($, Drupal) {
 
-  "use strict";
+  'use strict';
 
   var autocomplete;
 
   /**
    * Helper splitting terms from the autocomplete value.
    *
-   * @param {String} value
+   * @function Drupal.autocomplete.splitValues
+   *
+   * @param {string} value
    *
    * @return {Array}
    */
@@ -43,9 +50,11 @@
   /**
    * Returns the last value of an multi-value textfield.
    *
-   * @param {String} terms
+   * @function Drupal.autocomplete.extractLastTerm
    *
-   * @return {String}
+   * @param {string} terms
+   *
+   * @return {string}
    */
   function extractLastTerm(terms) {
     return autocomplete.splitValues(terms).pop();
@@ -54,9 +63,11 @@
   /**
    * The search handler is called before a search is performed.
    *
-   * @param {Object} event
+   * @function Drupal.autocomplete.options.search
    *
-   * @return {Boolean}
+   * @param {object} event
+   *
+   * @return {bool}
    */
   function searchHandler(event) {
     var options = autocomplete.options;
@@ -70,10 +81,10 @@
   }
 
   /**
-   * jQuery UI autocomplete source callback.
+   * JQuery UI autocomplete source callback.
    *
-   * @param {Object} request
-   * @param {Function} response
+   * @param {object} request
+   * @param {function} response
    */
   function sourceData(request, response) {
     var elementId = this.element.attr('id');
@@ -86,7 +97,7 @@
      * Filter through the suggestions removing all terms already tagged and
      * display the available terms to the user.
      *
-     * @param {Object} suggestions
+     * @param {object} suggestions
      */
     function showSuggestions(suggestions) {
       var tagged = autocomplete.splitValues(request.term);
@@ -103,7 +114,7 @@
     /**
      * Transforms the data object into an array and update autocomplete results.
      *
-     * @param {Object} data
+     * @param {object} data
      */
     function sourceCallbackHandler(data) {
       autocomplete.cache[elementId][term] = data;
@@ -128,7 +139,7 @@
   /**
    * Handles an autocompletefocus event.
    *
-   * @return {Boolean}
+   * @return {bool}
    */
   function focusHandler() {
     return false;
@@ -137,17 +148,17 @@
   /**
    * Handles an autocompleteselect event.
    *
-   * @param {Object} event
-   * @param {Object} ui
+   * @param {jQuery.Event} event
+   * @param {object} ui
    *
-   * @return {Boolean}
+   * @return {bool}
    */
   function selectHandler(event, ui) {
     var terms = autocomplete.splitValues(event.target.value);
     // Remove the current input.
     terms.pop();
     // Add the selected item.
-    if (ui.item.value.search(",") > 0) {
+    if (ui.item.value.search(',') > 0) {
       terms.push('"' + ui.item.value + '"');
     }
     else {
@@ -161,19 +172,21 @@
   /**
    * Override jQuery UI _renderItem function to output HTML by default.
    *
-   * @param {Object} ul
-   * @param {Object} item
+   * @param {object} ul
+   * @param {object} item
    *
-   * @return {Object}
+   * @return {object}
    */
   function renderItem(ul, item) {
-    return $("<li>")
-      .append($("<a>").html(item.label))
+    return $('<li>')
+      .append($('<a>').html(item.label))
       .appendTo(ul);
   }
 
   /**
    * Attaches the autocomplete behavior to all required fields.
+   *
+   * @type {Drupal~behavior}
    */
   Drupal.behaviors.autocomplete = {
     attach: function (context) {
@@ -187,7 +200,7 @@
         });
         // Use jQuery UI Autocomplete on the textfield.
         $autocomplete.autocomplete(autocomplete.options)
-          .data("ui-autocomplete")
+          .data('ui-autocomplete')
           ._renderItem = autocomplete.options.renderItem;
       }
     },
@@ -202,6 +215,8 @@
 
   /**
    * Autocomplete object implementation.
+   *
+   * @namespace Drupal.autocomplete
    */
   autocomplete = {
     cache: {},
@@ -209,6 +224,12 @@
     splitValues: autocompleteSplitValues,
     extractLastTerm: extractLastTerm,
     // jQuery UI autocomplete options.
+
+    /**
+     * JQuery UI option object.
+     *
+     * @name Drupal.autocomplete.options
+     */
     options: {
       source: sourceData,
       focus: focusHandler,

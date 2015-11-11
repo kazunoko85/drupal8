@@ -2,12 +2,10 @@
 
 /**
  * @file
- * Definition of Drupal\Core\Ajax\CssCommand.
+ * Contains \Drupal\Core\Ajax\CssCommand.
  */
 
 namespace Drupal\Core\Ajax;
-
-use Drupal\Core\Ajax\CommandInterface;
 
 /**
  * An AJAX command for calling the jQuery css() method.

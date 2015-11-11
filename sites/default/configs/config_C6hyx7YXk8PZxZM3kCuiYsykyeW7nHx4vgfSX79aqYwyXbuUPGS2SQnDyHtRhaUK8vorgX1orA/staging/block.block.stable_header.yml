@@ -1,0 +1,25 @@
+uuid: 59dae93c-969d-455e-9400-b8b1991dab86
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:95523c7c-6216-4cad-8e00-ae33d4ba66fd'
+  module:
+    - block_content
+  theme:
+    - stable
+id: stable_header
+theme: stable
+region: header
+weight: -7
+provider: null
+plugin: 'block_content:95523c7c-6216-4cad-8e00-ae33d4ba66fd'
+settings:
+  id: 'block_content:95523c7c-6216-4cad-8e00-ae33d4ba66fd'
+  label: Header
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
