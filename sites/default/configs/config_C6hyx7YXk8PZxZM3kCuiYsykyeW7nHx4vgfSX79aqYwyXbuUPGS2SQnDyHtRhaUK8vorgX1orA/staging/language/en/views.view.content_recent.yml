@@ -1,9 +1,11 @@
-label: 'Recent content'
-description: 'Recent content.'
 display:
   default:
-    display_title: Master
     display_options:
+      fields:
+        edit_node:
+          text: Edit
+        delete_node:
+          text: Delete
       exposed_form:
         options:
           submit_button: Apply
@@ -11,15 +13,13 @@ display:
           exposed_sorts_label: 'Sort by'
           sort_asc_label: Asc
           sort_desc_label: Desc
-      fields:
-        edit_node:
-          text: Edit
-        delete_node:
-          text: Delete
       title: 'Recent content'
       empty:
         area_text_custom:
           content: 'No content available.'
       use_more_text: More
+    display_title: Master
   block_1:
     display_title: Block
+label: 'Recent content'
+description: 'Recent content.'

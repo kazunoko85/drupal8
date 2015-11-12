@@ -23,12 +23,12 @@ display:
             next: ››
       arguments:
         created_year_month:
-          title: '%1'
+          title: '{{ arguments.created_year_month }}'
   block_1:
     display_title: Block
     display_options:
       arguments:
         created_year_month:
-          title: '%1'
+          title: '{{ arguments.created_year_month }}'
   page_1:
     display_title: Page

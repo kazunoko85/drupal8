@@ -1,6 +1,18 @@
-label: 'Taxonomy term'
-description: 'Content belonging to a certain taxonomy term.'
 display:
+  feed_1:
+    display_options:
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+          tags:
+            previous: '‹ previous'
+            next: 'next ›'
+            first: '« first'
+            last: 'last »'
+    display_title: Feed
   default:
     display_title: Master
     display_options:
@@ -24,20 +36,8 @@ display:
         tid:
           exception:
             title: All
-          title: '%1'
-  feed_1:
-    display_title: Feed
-    display_options:
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Items per page'
-            items_per_page_options_all_label: '- All -'
-            offset_label: Offset
-          tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
+          title: '{{ arguments.tid }}'
   page_1:
     display_title: Page
+label: 'Taxonomy term'
+description: 'Content belonging to a certain taxonomy term.'

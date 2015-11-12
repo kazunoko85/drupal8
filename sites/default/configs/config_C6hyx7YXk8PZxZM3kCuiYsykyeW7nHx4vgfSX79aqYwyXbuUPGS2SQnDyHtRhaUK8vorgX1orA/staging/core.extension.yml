@@ -8,6 +8,7 @@ module:
   config: 0
   contact: 0
   contextual: 0
+  ctools: 0
   datetime: 0
   dblog: 0
   editor: 0
@@ -21,12 +22,15 @@ module:
   image: 0
   kint: 0
   language: 0
+  layout_plugin: 0
   link: 0
   locale: 0
   menu_ui: 0
   node: 0
   options: 0
   page_cache: 0
+  page_manager: 0
+  panels: 0
   path: 0
   picture_manager: 0
   quickedit: 0
