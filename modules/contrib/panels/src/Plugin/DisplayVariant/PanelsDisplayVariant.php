@@ -145,8 +145,10 @@ class PanelsDisplayVariant extends BlockDisplayVariant {
   public function build() {
     $regions = $this->getRegionAssignments();
     $contexts = $this->getContexts();
+
     $layout = $this->getLayout();
     $build = $this->getBuilder()->build($regions, $contexts, $layout);
+    //var_dump($build['middle']['bcf1001d-52cb-442c-9300-c2d6fe30ed4a']['content']);
     $build['#title'] = $this->renderPageTitle($this->configuration['page_title']);
     return $build;
   }
@@ -256,6 +258,7 @@ class PanelsDisplayVariant extends BlockDisplayVariant {
     foreach ($this->getContexts() as $context) {
       // @todo Simplify this when token and typed data types are unified in
       //   https://drupal.org/node/2163027.
+
       if (strpos($context->getContextDefinition()->getDataType(), 'entity:') === 0) {
         $token_type = substr($context->getContextDefinition()->getDataType(), 7);
         if ($token_type == 'taxonomy_term') {

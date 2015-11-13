@@ -1,0 +1,26 @@
+uuid: a5da9d25-c6dc-49f0-8314-20df0a62695b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+id: authenticated_user
+label: 'Authenticated user'
+logic: and
+conditions:
+  f59fd8c8-68fe-49ca-b400-ae5640e522dc:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    uuid: f59fd8c8-68fe-49ca-b400-ae5640e522dc
+  f79d4362-2d48-4ee4-9d44-68622920fdaf:
+    id: current_theme
+    theme: murata_theme
+    negate: 0
+    context_mapping: {  }
+    uuid: f79d4362-2d48-4ee4-9d44-68622920fdaf
+allow_other_conditions: false

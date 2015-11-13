@@ -1,0 +1,14 @@
+name: Block Visibility Groups Devel
+type: module
+description: Block Visibility Groups development helper
+# core: 8.x
+package: Other
+dependencies:
+  - block_visibility_groups
+
+
+# Information added by Drupal.org packaging script on 2015-09-28
+version: '8.x-1.0-alpha2'
+core: '8.x'
+project: 'block_visibility_groups'
+datestamp: 1443474544

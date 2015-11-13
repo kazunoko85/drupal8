@@ -1,0 +1,55 @@
+uuid: 4c999eaf-2829-42b4-9700-e3bd673c70bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.member_only
+  content:
+    - 'block_content:basic:1d7457eb-3222-40b3-a300-d50a8ab21021'
+    - 'block_content:basic:d57cde5c-d37b-42fc-8e0a-10be901773fd'
+  module:
+    - block_content
+    - panels
+id: member_only
+label: 'Member Only'
+variant: panels_variant
+variant_settings:
+  selection_conditions: {  }
+  blocks:
+    e620d2ca-dda3-4cba-8504-4b2afe3ae4cc:
+      id: 'block_content:1d7457eb-3222-40b3-a300-d50a8ab21021'
+      label: 'Member Only'
+      provider: block_content
+      label_display: 0
+      status: true
+      info: ''
+      view_mode: full
+      region: middle
+      weight: '-9'
+      uuid: e620d2ca-dda3-4cba-8504-4b2afe3ae4cc
+      context_mapping: {  }
+    bcf1001d-52cb-442c-9300-c2d6fe30ed4a:
+      id: 'block_content:d57cde5c-d37b-42fc-8e0a-10be901773fd'
+      label: 'echo user'
+      provider: block_content
+      label_display: 0
+      status: true
+      info: ''
+      view_mode: full
+      region: middle
+      weight: '-10'
+      uuid: bcf1001d-52cb-442c-9300-c2d6fe30ed4a
+      context_mapping: {  }
+  id: panels_variant
+  label: ''
+  uuid: ''
+  weight: 0
+  selection_logic: and
+  layout: onecol
+  page_title: 'Member Only'
+  builder: standard
+page: member_only
+weight: -9
+selection_criteria: {  }
+selection_logic: and
+contexts: {  }

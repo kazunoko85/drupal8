@@ -114,7 +114,6 @@ class StandardDisplayBuilder extends DisplayBuilderBase implements ContainerFact
             '#derivative_plugin_id' => $block->getDerivativeId(),
           ];
           $block_render_array['content'] = $block->build();
-
           $build[$region][$block_id] = $block_render_array;
         }
       }

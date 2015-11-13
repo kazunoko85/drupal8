@@ -188,6 +188,7 @@ class Token {
    *   it would be sanitized by Xss::filterAdmin().
    */
   public function replace($text, array $data = array(), array $options = array(), BubbleableMetadata $bubbleable_metadata = NULL) {
+//var_dump($text);
     $text_tokens = $this->scan($text);
     if (empty($text_tokens)) {
       return $text;
