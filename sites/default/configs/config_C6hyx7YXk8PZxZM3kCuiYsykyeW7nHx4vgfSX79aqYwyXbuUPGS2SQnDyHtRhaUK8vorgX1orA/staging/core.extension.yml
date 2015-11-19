@@ -4,6 +4,7 @@ module:
   block_visibility_groups: 0
   breakpoint: 0
   ckeditor: 0
+  codefilter: 0
   color: 0
   comment: 0
   config: 0
@@ -33,9 +34,11 @@ module:
   page_manager: 0
   panels: 0
   path: 0
+  php: 0
   picture_manager: 0
   quickedit: 0
   rdf: 0
+  responsive_image: 0
   search: 0
   shortcut: 0
   syslog: 0

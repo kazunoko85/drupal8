@@ -1,0 +1,17 @@
+uuid: a751855c-865c-4465-8902-2f9320c0e86e
+langcode: en
+status: true
+dependencies:
+  module:
+    - codefilter
+name: 'Code Filter'
+format: php_filter
+weight: 0
+filters:
+  codefilter:
+    id: codefilter
+    provider: codefilter
+    status: true
+    weight: 0
+    settings:
+      nowrap_expand: '0'

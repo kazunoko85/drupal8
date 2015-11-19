@@ -1,0 +1,16 @@
+name: 'PHP code'
+format: php_code
+status: true
+weight: 11
+roles:
+  - administrator
+cache: 0
+filters:
+  php_code:
+    id: php_code
+    module: php
+    status: true
+    weight: 0
+    settings: {  }
+dependencies: {  }
+langcode: und
