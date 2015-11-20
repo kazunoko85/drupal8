@@ -1,0 +1,26 @@
+uuid: 6b05e114-8b1c-4c31-9200-d9ff1f3fdfb5
+langcode: en
+status: true
+dependencies:
+  module:
+    - null
+id: article-form
+label: 'Add or Edit a article'
+module: null
+routes:
+  - route_name: node.add
+tips:
+  introduction:
+    id: introduction
+    plugin: text
+    label: 'Adding or Editing a container'
+    body: '<p>Is <a href="[site:url]">[site:name]</a> always the best dressed? This form can be used to edit an existing container or add a new container to your site.</p><p>Containers are used to group forums together. For example if you ran a Drupal forum you might create a ''Support'' container and include forums for ''Installing Drupal'' and ''Getting started'' inside the ''Support'' Container</p>'
+    weight: 1
+  container-name:
+    id: container-name
+    plugin: text
+    label: 'Container name'
+    body: 'Enter a name to identify this container. Eg ''Support'''
+    weight: 2
+    attributes:
+      data-id: edit-preview

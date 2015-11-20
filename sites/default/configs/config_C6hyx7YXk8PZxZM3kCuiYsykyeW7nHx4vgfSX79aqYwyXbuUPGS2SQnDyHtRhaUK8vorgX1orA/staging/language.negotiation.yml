@@ -3,9 +3,7 @@ session:
 url:
   source: path_prefix
   prefixes:
-    ja: ja
     en: en
   domains:
-    ja: ''
     en: ''
 langcode: ja
