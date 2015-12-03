@@ -2,4 +2,6 @@ definitions:
   contact__site_page:
     enabled: true
     menu_name: footer
-langcode: ja
+    parent: ''
+    weight: 0
+    expanded: false

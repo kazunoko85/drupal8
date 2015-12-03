@@ -1,6 +1,6 @@
-uuid: fba6796e-c615-4056-a654-84ee20afa6a5
-langcode: ja
+uuid: 883f9784-8ae8-4985-9000-b4a8ed660286
+langcode: en
 status: true
 dependencies: {  }
 id: default
-label: デフォルト
+label: Default

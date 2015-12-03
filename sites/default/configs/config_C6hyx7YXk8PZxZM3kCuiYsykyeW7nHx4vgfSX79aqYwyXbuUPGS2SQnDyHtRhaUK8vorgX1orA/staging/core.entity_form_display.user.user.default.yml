@@ -1,8 +1,11 @@
-uuid: 665f3f48-90dc-4d90-993c-607ff142673c
-langcode: ja
+uuid: cf62711f-6ca5-4c54-a903-3c542b52efd1
+langcode: en
 status: true
 dependencies:
+  config:
+    - field.field.user.user.user_picture
   module:
+    - image
     - user
 id: user.user.default
 targetEntityType: user

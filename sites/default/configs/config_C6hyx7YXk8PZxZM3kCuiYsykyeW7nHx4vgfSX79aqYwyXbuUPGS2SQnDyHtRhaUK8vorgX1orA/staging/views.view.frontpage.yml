@@ -1,5 +1,5 @@
-uuid: 05f54131-64cf-40f4-9a00-c878a1d57c07
-langcode: ja
+uuid: fd96fba8-0a1b-42c5-9705-0590a61c340a
+langcode: en
 status: true
 dependencies:
   config:
@@ -24,7 +24,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: none
+        type: tag
         options: {  }
       empty:
         area_text_custom:
@@ -177,10 +177,10 @@ display:
             offset: false
             offset_label: Offset
           tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
           quantity: 9
       query:
         type: views_query
@@ -248,7 +248,6 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
       max-age: -1
       tags: {  }
   feed_1:
@@ -284,7 +283,6 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
       max-age: -1
       tags: {  }
   page_1:
@@ -301,6 +299,5 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
       max-age: -1
       tags: {  }

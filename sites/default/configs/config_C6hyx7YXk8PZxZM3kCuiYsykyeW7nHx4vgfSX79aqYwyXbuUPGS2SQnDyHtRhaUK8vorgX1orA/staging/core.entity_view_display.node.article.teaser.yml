@@ -1,5 +1,5 @@
-uuid: 38a72afd-76ab-49d0-bb00-bab105001c50
-langcode: ja
+uuid: 2a08cf6c-ef2d-425a-a707-7f8147db4975
+langcode: en
 status: true
 dependencies:
   config:
@@ -46,4 +46,3 @@ hidden:
   comment: true
   field_image: true
   field_tags: true
-  langcode: true

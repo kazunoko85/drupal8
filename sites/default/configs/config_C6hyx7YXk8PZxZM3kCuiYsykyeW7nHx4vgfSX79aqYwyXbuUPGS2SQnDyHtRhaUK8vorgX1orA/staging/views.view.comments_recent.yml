@@ -1,9 +1,10 @@
-uuid: b47fa52d-c5dd-4ff7-a608-08e030fe0449
-langcode: ja
+uuid: 7b0e17ee-b6f1-4486-8009-9e77816ceda8
+langcode: en
 status: true
 dependencies:
   module:
     - comment
+    - node
     - user
 id: comments_recent
 label: 'Recent comments'
@@ -25,7 +26,7 @@ display:
         options:
           perm: 'access comments'
       cache:
-        type: none
+        type: tag
       query:
         type: views_query
       exposed_form:
@@ -164,13 +165,13 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: comment
-          entity_field: changed
           type: timestamp_ago
           settings:
             future_format: '@interval hence'
             past_format: '@interval ago'
             granularity: 2
+          entity_type: comment
+          entity_field: changed
       filters:
         status:
           value: true
@@ -242,7 +243,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      cacheable: false
       max-age: -1
       tags: {  }
   block_1:
@@ -261,6 +261,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      cacheable: false
       max-age: -1
       tags: {  }

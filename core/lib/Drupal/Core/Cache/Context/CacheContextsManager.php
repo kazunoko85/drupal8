@@ -161,7 +161,6 @@ class CacheContextsManager {
    *   A representative subset of the given set of cache context tokens..
    */
   public function optimizeTokens(array $context_tokens) {
-
     $optimized_content_tokens = [];
     foreach ($context_tokens as $context_token) {
 

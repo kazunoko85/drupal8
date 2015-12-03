@@ -1,10 +1,10 @@
-uuid: 22a65b5b-5b09-4932-ba21-334635d14921
-langcode: ja
+uuid: 46e7d4fc-9bea-4ff1-bb01-01419565ed16
+langcode: en
 status: true
 dependencies:
   module:
     - node
 id: node.teaser
-label: ティーザー
+label: Teaser
 targetEntityType: node
 cache: true

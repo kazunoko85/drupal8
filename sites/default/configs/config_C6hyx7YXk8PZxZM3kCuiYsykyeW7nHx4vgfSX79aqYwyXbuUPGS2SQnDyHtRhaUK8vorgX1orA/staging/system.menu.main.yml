@@ -1,8 +1,8 @@
-uuid: 5d3eb366-8f4a-432b-8a06-6b686da3dd4f
-langcode: ja
+uuid: 69323078-479d-4c4c-8203-3ee65a89878d
+langcode: en
 status: true
 dependencies: {  }
 id: main
 label: 'Main navigation'
-description: 'Use this for linking to the main site sections.'
+description: 'Site section links'
 locked: true

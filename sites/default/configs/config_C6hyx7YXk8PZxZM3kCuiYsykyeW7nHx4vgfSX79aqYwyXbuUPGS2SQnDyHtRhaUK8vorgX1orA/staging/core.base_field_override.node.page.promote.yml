@@ -1,5 +1,5 @@
-uuid: bac513a5-d81d-4dee-b103-3b088f6b6eef
-langcode: ja
+uuid: bfc67479-1404-48c3-8a0b-112706dea829
+langcode: en
 status: true
 dependencies:
   config:
@@ -8,10 +8,10 @@ id: node.page.promote
 field_name: promote
 entity_type: node
 bundle: page
-label: フロントページへ掲載
+label: 'Promoted to front page'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value:
   -
     value: 0

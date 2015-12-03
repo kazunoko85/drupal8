@@ -7,7 +7,7 @@ function picture_manager_form_alter(&$form, \Drupal\Core\Form\FormStateInterface
 
   //debug func dpm() not working.
   if($form_id == 'node_article_form'){
-    kint($form);
+    //kint($form);
   }
 }
 

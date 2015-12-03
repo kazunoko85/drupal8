@@ -1,8 +1,8 @@
-uuid: 718d8ee9-9647-48dd-b304-4f747a5d7d65
-langcode: ja
+uuid: 350b336a-91f2-443b-a703-3dd61b84dd27
+langcode: en
 status: true
 dependencies: {  }
-name: 基本ページ
+name: 'Basic page'
 type: page
 description: 'Use <em>basic pages</em> for your static content, such as an ''About us'' page.'
 help: ''

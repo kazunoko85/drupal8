@@ -1,5 +1,5 @@
-uuid: 64fb26ca-6555-4dfa-8300-f64ec63bab21
-langcode: ja
+uuid: d2049bdd-6ebd-4de6-b81e-30d1a69ca255
+langcode: en
 status: true
 dependencies:
   config:
@@ -26,10 +26,5 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 2
-    settings: {  }
     third_party_settings: {  }
 hidden: {  }

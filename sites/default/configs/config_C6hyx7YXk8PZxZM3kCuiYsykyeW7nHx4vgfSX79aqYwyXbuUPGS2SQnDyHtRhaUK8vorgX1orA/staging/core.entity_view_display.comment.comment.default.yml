@@ -1,5 +1,5 @@
-uuid: 972a4415-090b-404f-ab00-d66216b3ba31
-langcode: ja
+uuid: 0b518024-3723-4cc9-8b00-beff9de5f415
+langcode: en
 status: true
 dependencies:
   config:
@@ -20,5 +20,4 @@ content:
     third_party_settings: {  }
   links:
     weight: 100
-hidden:
-  langcode: true
+hidden: {  }

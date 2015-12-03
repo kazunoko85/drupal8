@@ -1,8 +1,9 @@
-uuid: 42cb0471-fd0d-40ac-b82b-4370190906ff
-langcode: ja
+uuid: 9a662718-aacc-4cd3-9d00-ae9b2fa8b602
+langcode: en
 status: true
 dependencies:
   module:
+    - file
     - image
     - user
 id: user.user_picture
@@ -28,3 +29,4 @@ indexes:
   target_id:
     - target_id
 persist_with_no_fields: false
+custom_storage: false

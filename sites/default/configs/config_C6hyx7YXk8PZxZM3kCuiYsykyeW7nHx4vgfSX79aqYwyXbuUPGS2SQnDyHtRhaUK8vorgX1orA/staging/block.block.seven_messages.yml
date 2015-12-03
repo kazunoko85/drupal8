@@ -1,6 +1,6 @@
-uuid: 0c3ca2fd-0a3c-47c4-8900-aa0b5bd32f20
-langcode: ja
-status: false
+uuid: cccf3b2e-0ea5-443a-9d02-2ba6412324de
+langcode: en
+status: true
 dependencies:
   module:
     - system
@@ -8,7 +8,7 @@ dependencies:
     - seven
 id: seven_messages
 theme: seven
-region: '-1'
+region: highlighted
 weight: 0
 provider: null
 plugin: system_messages_block

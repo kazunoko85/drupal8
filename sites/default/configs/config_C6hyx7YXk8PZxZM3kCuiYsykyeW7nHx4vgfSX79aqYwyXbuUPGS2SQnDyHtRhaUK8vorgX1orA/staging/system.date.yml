@@ -1,10 +1,9 @@
 country:
-  default: ''
+  default: JP
 first_day: 0
 timezone:
-  default: UTC
+  default: Asia/Tokyo
   user:
     configurable: true
     warn: false
     default: 0
-langcode: ja

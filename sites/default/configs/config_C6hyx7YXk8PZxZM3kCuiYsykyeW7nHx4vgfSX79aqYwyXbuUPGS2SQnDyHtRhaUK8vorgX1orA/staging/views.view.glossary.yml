@@ -1,5 +1,5 @@
-uuid: 0de35133-9d85-4900-b95c-92c1fca563be
-langcode: ja
+uuid: 4cd00d19-762b-4d7f-8400-d47180213df2
+langcode: en
 status: false
 dependencies:
   config:
@@ -36,7 +36,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: none
+        type: tag
         options: {  }
       exposed_form:
         type: basic
@@ -175,6 +175,11 @@ display:
           table: node_field_data
           field: changed
           label: 'Last update'
+          type: timestamp
+          settings:
+            date_format: long
+            custom_date_format: ''
+            timezone: ''
           plugin_id: field
           relationship: none
           group_type: group
@@ -221,11 +226,6 @@ display:
           hide_alter_empty: true
           entity_type: node
           entity_field: changed
-          type: timestamp
-          settings:
-            date_format: long
-            custom_date_format: ''
-            timezone: ''
       arguments:
         title:
           id: title
@@ -358,7 +358,6 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
       max-age: 0
       tags: {  }
   attachment_1:
@@ -427,7 +426,6 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
       max-age: 0
       tags: {  }
   page_1:
@@ -455,6 +453,5 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
       max-age: 0
       tags: {  }

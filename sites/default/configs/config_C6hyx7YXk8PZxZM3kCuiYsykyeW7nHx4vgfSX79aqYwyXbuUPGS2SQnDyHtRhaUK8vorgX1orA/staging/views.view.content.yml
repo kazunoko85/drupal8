@@ -1,5 +1,5 @@
-uuid: ee9eb54e-157a-4cf3-a93a-5862c0d07d7d
-langcode: ja
+uuid: abfe9f49-9027-4c98-b800-0d67701807de
+langcode: en
 status: true
 dependencies:
   module:
@@ -21,7 +21,7 @@ display:
         options:
           perm: 'access content overview'
       cache:
-        type: none
+        type: tag
       query:
         type: views_query
       exposed_form:
@@ -39,10 +39,10 @@ display:
         options:
           items_per_page: 50
           tags:
-            previous: '‹ previous'
-            next: 'next ›'
-            first: '« first'
-            last: 'last »'
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
       style:
         type: table
         options:
@@ -295,14 +295,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: field
-          entity_type: node
-          entity_field: changed
           type: timestamp
           settings:
             date_format: short
             custom_date_format: ''
             timezone: ''
+          plugin_id: field
+          entity_type: node
+          entity_field: changed
         operations:
           id: operations
           table: node
@@ -569,7 +569,6 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
       max-age: 0
       tags: {  }
   page_1:
@@ -602,6 +601,5 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      cacheable: false
       max-age: 0
       tags: {  }

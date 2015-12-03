@@ -1,8 +1,8 @@
-uuid: 20211959-38ce-4c90-b019-25fc26a98874
-langcode: ja
+uuid: 03ee6811-d0b7-4ad4-8a31-491b7540e30a
+langcode: en
 status: true
 dependencies: {  }
-name: 記事
+name: Article
 type: article
 description: 'Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.'
 help: ''

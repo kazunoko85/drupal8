@@ -1,8 +1,8 @@
-uuid: 20625a20-1516-46ff-9207-7e3770612a3f
-langcode: ja
+uuid: 524b4ee9-2c0b-4e2d-bb00-0e507664d373
+langcode: en
 status: true
 dependencies: {  }
 id: admin
-label: 管理
-description: 'Contains links to administrative tasks.'
+label: Administration
+description: 'Administrative task links'
 locked: true

@@ -201,6 +201,7 @@ class BlockPageVariant extends VariantBase implements PageVariantInterface, Cont
       $merged_cacheable_metadata = $merged_cacheable_metadata->merge($cacheable_metadata);
     }
     $merged_cacheable_metadata->applyTo($build);
+
     return $build;
   }
 

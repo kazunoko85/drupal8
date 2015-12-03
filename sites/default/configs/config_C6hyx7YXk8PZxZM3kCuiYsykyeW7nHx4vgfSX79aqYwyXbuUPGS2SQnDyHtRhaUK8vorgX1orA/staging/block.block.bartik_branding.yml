@@ -1,14 +1,23 @@
-id: bartik_branding
-region: header
-plugin: system_branding_block
-settings:
-  label: 'Site branding'
-  label_display: '0'
-visibility: {  }
-weight: 0
+uuid: dd00ab40-3cf7-48ac-8706-6d6bf31758a7
 langcode: en
-uuid: 930b864b-6c28-4652-b05c-92dfcdcbba12
-theme: bartik
+status: true
 dependencies:
+  module:
+    - system
   theme:
     - bartik
+id: bartik_branding
+theme: bartik
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

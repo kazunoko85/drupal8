@@ -1,8 +1,8 @@
-uuid: 0169a1e6-3205-4ecd-9953-83fcf9f04881
-langcode: ja
+uuid: 68a2115c-c8ae-4436-b300-ecfbbca4e53a
+langcode: en
 status: true
 dependencies: {  }
-name: プレーンテキスト
+name: 'Plain text'
 format: plain_text
 weight: 10
 filters:

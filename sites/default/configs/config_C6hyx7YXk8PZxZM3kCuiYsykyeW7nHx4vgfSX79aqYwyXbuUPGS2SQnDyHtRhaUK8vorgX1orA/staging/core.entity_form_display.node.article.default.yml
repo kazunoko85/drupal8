@@ -1,5 +1,5 @@
-uuid: 29497a5c-1f19-44ae-9001-1cb9717684b2
-langcode: ja
+uuid: 2e165e94-5b32-4d5f-ad5f-95ec1d840f4e
+langcode: en
 status: true
 dependencies:
   config:
@@ -46,11 +46,6 @@ content:
   field_tags:
     type: entity_reference_autocomplete_tags
     weight: 3
-    settings: {  }
-    third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 2
     settings: {  }
     third_party_settings: {  }
   path:

@@ -1,5 +1,5 @@
-uuid: a349528a-f0fc-461e-bf00-0bb9b5886dda
-langcode: ja
+uuid: ea99e956-782e-4847-ac00-d66c75224277
+langcode: en
 status: true
 dependencies:
   module:
@@ -24,7 +24,7 @@ display:
         options:
           perm: 'access user profiles'
       cache:
-        type: none
+        type: tag
         options: {  }
       query:
         type: views_query
@@ -200,7 +200,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      cacheable: false
       max-age: -1
       tags: {  }
   who_s_online_block:
@@ -217,6 +216,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      cacheable: false
       max-age: -1
       tags: {  }

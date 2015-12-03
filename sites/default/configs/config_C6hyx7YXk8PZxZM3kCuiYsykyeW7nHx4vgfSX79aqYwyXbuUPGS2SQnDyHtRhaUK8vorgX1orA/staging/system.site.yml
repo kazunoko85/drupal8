@@ -1,12 +1,12 @@
-uuid: 744c140e-2a57-452d-8809-9a95b9ffe75a
-name: drupal8.jp
+uuid: e7ea471e-37e2-4f31-8200-e63880b0b0b1
+name: drupal8.0.0
 mail: murata@dgcircus.com
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /node/1
+  front: /node
 admin_compact_mode: false
 weight_select_max: 100
-langcode: ja
+langcode: en
 default_langcode: en

@@ -1,14 +1,18 @@
-id: seven_page_title
-region: header
-plugin: page_title_block
-settings:
-  label: 'Page title'
-  label_display: '0'
-visibility: {  }
-weight: -50
+uuid: 7e55350b-4b03-45a2-ab00-e3876f290752
 langcode: en
-uuid: 8dd18aa1-ccf0-4118-a606-6e850accce2d
-theme: seven
+status: true
 dependencies:
   theme:
     - seven
+id: seven_page_title
+theme: seven
+region: header
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

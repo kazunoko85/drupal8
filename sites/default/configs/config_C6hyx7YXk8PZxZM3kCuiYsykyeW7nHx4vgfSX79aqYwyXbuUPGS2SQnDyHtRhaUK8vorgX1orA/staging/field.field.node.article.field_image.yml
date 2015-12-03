@@ -1,5 +1,5 @@
-uuid: a9472055-685e-4575-8705-5f8936e01775
-langcode: ja
+uuid: f5f0c64d-94b5-4dd0-8f4b-75a017fe7315
+langcode: en
 status: true
 dependencies:
   config:
@@ -11,14 +11,14 @@ id: node.article.field_image
 field_name: field_image
 entity_type: node
 bundle: article
-label: 画像
+label: Image
 description: ''
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: field/image
+  file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''
@@ -33,6 +33,6 @@ settings:
     title: ''
     width: null
     height: null
-  handler: 'default:node'
+  handler: 'default:file'
   handler_settings: {  }
 field_type: image

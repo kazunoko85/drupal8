@@ -1,9 +1,9 @@
-uuid: 20ba0999-a4e1-421f-811a-266886d57748
-langcode: ja
+uuid: 47b7907c-1d82-482e-8619-25fa66a48cff
+langcode: en
 status: true
 dependencies: {  }
 id: personal
-label: パーソナルコンタクトフォーム
+label: 'Personal contact form'
 recipients: {  }
 reply: ''
 weight: 0

@@ -345,8 +345,6 @@ abstract class PluginBase extends ComponentPluginBase implements ContainerFactor
    * @return String
    */
   protected function viewsTokenReplace($text, $tokens) {
-    //TODO MURATA
-    //var_dump($text);
     if (!strlen($text)) {
       // No need to run filterAdmin on an empty string.
       return '';

@@ -1,5 +1,5 @@
-uuid: 4618f125-39ac-4844-9341-6528f5cbd4fc
-langcode: ja
+uuid: c6c09a85-61f9-4c76-9b04-4dcd78ed7719
+langcode: en
 status: true
 dependencies:
   config:
@@ -24,11 +24,6 @@ content:
   created:
     type: datetime_timestamp
     weight: 10
-    settings: {  }
-    third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 2
     settings: {  }
     third_party_settings: {  }
   path:

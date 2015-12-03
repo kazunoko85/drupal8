@@ -1,5 +1,5 @@
-uuid: 7f2d09d4-9ec2-4be7-b000-ed23a3721d38
-langcode: ja
+uuid: 5429f59b-c663-425a-8e63-99e6bc3588ac
+langcode: en
 status: true
 dependencies:
   module:
@@ -24,7 +24,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: none
+        type: tag
         options: {  }
       query:
         type: views_query
@@ -170,7 +170,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      cacheable: false
       max-age: -1
       tags: {  }
   block_1:
@@ -188,6 +187,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - user.permissions
-      cacheable: false
       max-age: -1
       tags: {  }

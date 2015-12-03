@@ -1,5 +1,5 @@
-uuid: e97b1128-fd13-48d7-ac00-e845d8b5c110
-langcode: ja
+uuid: 8027d143-ba11-45d8-b109-9f6c923e514f
+langcode: en
 status: true
 dependencies:
   module:
@@ -17,3 +17,4 @@ cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
+custom_storage: false

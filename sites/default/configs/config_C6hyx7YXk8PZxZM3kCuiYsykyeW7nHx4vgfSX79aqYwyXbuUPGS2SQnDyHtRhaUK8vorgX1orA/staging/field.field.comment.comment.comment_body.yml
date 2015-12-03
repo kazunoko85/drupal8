@@ -1,5 +1,5 @@
-uuid: 47c18298-3b49-45f5-9400-a9fc950cca7d
-langcode: ja
+uuid: 4cfd85cc-73e0-4428-8300-b09065eeaf59
+langcode: en
 status: true
 dependencies:
   config:
@@ -11,7 +11,7 @@ id: comment.comment.comment_body
 field_name: comment_body
 entity_type: comment
 bundle: comment
-label: コメント
+label: Comment
 description: ''
 required: true
 translatable: true

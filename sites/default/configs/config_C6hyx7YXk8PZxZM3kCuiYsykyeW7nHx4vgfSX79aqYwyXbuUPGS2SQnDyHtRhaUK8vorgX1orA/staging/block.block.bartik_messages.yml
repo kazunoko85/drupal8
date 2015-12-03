@@ -1,6 +1,6 @@
-uuid: d058b46a-6536-41d8-955e-944e2c0dd437
-langcode: ja
-status: false
+uuid: 0362cd45-4525-4261-a130-48f7c40c9a84
+langcode: en
+status: true
 dependencies:
   module:
     - system
@@ -8,7 +8,7 @@ dependencies:
     - bartik
 id: bartik_messages
 theme: bartik
-region: '-1'
+region: highlighted
 weight: 0
 provider: null
 plugin: system_messages_block

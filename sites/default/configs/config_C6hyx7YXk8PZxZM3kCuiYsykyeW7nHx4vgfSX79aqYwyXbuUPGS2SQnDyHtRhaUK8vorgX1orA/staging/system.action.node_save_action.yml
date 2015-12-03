@@ -1,11 +1,11 @@
-uuid: ca7d55e0-e7f9-428e-915e-94c6b26fafc3
-langcode: ja
+uuid: f5f2fdef-1f86-447e-b854-84fdf9208e37
+langcode: en
 status: true
 dependencies:
   module:
     - node
 id: node_save_action
-label: コンテンツの保存
+label: 'Save content'
 type: node
 plugin: node_save_action
 configuration: {  }

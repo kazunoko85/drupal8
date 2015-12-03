@@ -1,5 +1,5 @@
-uuid: 27b6f6d9-d18b-497b-a307-7f04443f9778
-langcode: ja
+uuid: 202410bf-5dae-426a-bb00-c31368329b35
+langcode: en
 status: true
 dependencies:
   config:
@@ -32,6 +32,10 @@ settings:
           items:
             - Blockquote
             - DrupalImage
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
         -
           name: Tools
           items:

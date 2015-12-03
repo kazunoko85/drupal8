@@ -1,8 +1,8 @@
-uuid: 55cd38d7-5d49-4eca-b058-88d2fc6b07ef
-langcode: ja
+uuid: b881e8e2-2187-4924-8100-ddca4fdbc600
+langcode: en
 status: true
 dependencies: {  }
-name: タグ
+name: Tags
 vid: tags
 description: 'Use tags to group articles on similar topics into categories.'
 hierarchy: 0

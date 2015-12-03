@@ -1,5 +1,5 @@
-uuid: c9c978aa-5725-4083-8d00-c042305c0516
-langcode: ja
+uuid: c506721b-f57d-4fdc-ab1e-30030a8b93db
+langcode: en
 status: true
 dependencies: {  }
 id: anonymous
@@ -7,8 +7,8 @@ label: 'Anonymous user'
 weight: 0
 is_admin: false
 permissions:
-  - 'use text format plain_text'
   - 'access content'
   - 'use text format restricted_html'
   - 'access comments'
   - 'access site-wide contact form'
+  - 'search content'

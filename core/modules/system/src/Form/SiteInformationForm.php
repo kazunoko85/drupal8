@@ -135,7 +135,6 @@ class SiteInformationForm extends ConfigFormBase {
       '#description' => t('Optionally, specify a relative URL to display as the front page. Leave blank to display the default front page.'),
       '#field_prefix' => $this->requestContext->getCompleteBaseUrl(),
     );
-
     $form['error_page'] = array(
       '#type' => 'details',
       '#title' => t('Error pages'),

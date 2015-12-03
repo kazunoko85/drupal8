@@ -1,14 +1,18 @@
-id: seven_local_actions
-weight: -10
-plugin: local_actions_block
-region: content
-settings:
-  label: 'Primary admin actions'
-  label_display: '0'
-visibility: {  }
+uuid: f8cf055b-b94d-4954-b200-f6341d9ebe85
 langcode: en
-uuid: 0a1d9c4a-6e46-482f-ba00-c15c5a70775a
-theme: seven
+status: true
 dependencies:
   theme:
     - seven
+id: seven_local_actions
+theme: seven
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

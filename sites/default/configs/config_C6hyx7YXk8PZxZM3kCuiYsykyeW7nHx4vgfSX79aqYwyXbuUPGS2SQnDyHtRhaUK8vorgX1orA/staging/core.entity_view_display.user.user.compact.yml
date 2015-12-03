@@ -1,10 +1,12 @@
-uuid: 40388c3b-c6bc-408b-bb03-3b25997e4bb7
-langcode: ja
+uuid: 23f98d77-27dd-4ce7-a100-e1453d5746bb
+langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.user_picture
   module:
+    - image
     - user
 id: user.user.compact
 targetEntityType: user
