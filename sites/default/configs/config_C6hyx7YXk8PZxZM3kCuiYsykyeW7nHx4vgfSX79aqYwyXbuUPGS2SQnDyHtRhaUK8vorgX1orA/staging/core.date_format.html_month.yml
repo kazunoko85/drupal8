@@ -1,8 +1,0 @@
-uuid: db44076d-a1ff-48a6-9b4d-771e24d70828
-langcode: en
-status: true
-dependencies: {  }
-id: html_month
-label: 'HTML Month'
-locked: true
-pattern: Y-m
