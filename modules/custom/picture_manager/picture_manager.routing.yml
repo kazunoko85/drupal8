@@ -1,7 +1,0 @@
-picture_manager.content:
-  path: '/picture'
-  defaults:
-    _controller: 'Drupal\picture_manager\Controller\PictureManagerController::content'
-    _title: 'Hello World'
-  requirements:
-    _permission: 'access content'
