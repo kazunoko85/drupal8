@@ -1,0 +1,18 @@
+uuid: e58d5e59-4834-4da9-8b00-b56a32e2a344
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.forum_container
+field_name: forum_container
+entity_type: taxonomy_term
+type: boolean
+settings: {  }
+module: core
+locked: true
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

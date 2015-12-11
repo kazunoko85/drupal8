@@ -1,0 +1,23 @@
+uuid: 76040a22-dd72-4d83-b252-82acdca6ca40
+langcode: en
+status: true
+dependencies:
+  module:
+    - forum
+  theme:
+    - bartik
+id: activeforumtopics
+theme: bartik
+region: sidebar_first
+weight: null
+provider: null
+plugin: forum_active_block
+settings:
+  id: forum_active_block
+  label: 'Active forum topics'
+  provider: forum
+  label_display: visible
+  properties:
+    administrative: '1'
+  block_count: 5
+visibility: {  }

@@ -1,9 +1,0 @@
-session:
-  parameter: language
-url:
-  source: path_prefix
-  prefixes:
-    en: en
-  domains:
-    en: ''
-langcode: ja
