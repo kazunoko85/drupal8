@@ -683,5 +683,5 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 $settings['install_profile'] = 'standard';
-$config_directories['active'] = 'sites/default/configs/config_C6hyx7YXk8PZxZM3kCuiYsykyeW7nHx4vgfSX79aqYwyXbuUPGS2SQnDyHtRhaUK8vorgX1orA/active';
-$config_directories['staging'] = 'sites/default/configs/config_C6hyx7YXk8PZxZM3kCuiYsykyeW7nHx4vgfSX79aqYwyXbuUPGS2SQnDyHtRhaUK8vorgX1orA/staging';
+$config_directories['active'] = 'sites/default/config/active';
+$config_directories['staging'] = 'sites/default/config/staging';
