@@ -36,7 +36,10 @@ class SampleFooterBlock extends BlockBase {
   public function build() {
     return array(
       '#type' => 'markup',
-      '#markup' => 'I am ' . $this->configuration['who_am_i'],
+      '#markup' => 'I am ' . $this->configuration['who_am_i'].date('Y/m/d m:s'),
+      '#cache' => array(
+        'contexts' => array('user'),
+      ),
     );
   }
 
