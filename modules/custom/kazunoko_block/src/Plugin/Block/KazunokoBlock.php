@@ -48,13 +48,6 @@ class KazunokoBlock extends BlockBase {
   /**
    * {@inheritdoc}
    */
-  public function access(AccountInterface $account, $return_as_object = FALSE) {
-    return $account->hasPermission('access content');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function defaultConfiguration() {
     return array(
       'text' => t('Drupal!'),
