@@ -1,7 +1,7 @@
-name: Murata Sample
+name: kazunoko block
 type: module
-description: for murata test.
-package: Murata Sample
+description: block sample.
+package: kazunoko
 # core: 8.x
 dependencies:
   - block
