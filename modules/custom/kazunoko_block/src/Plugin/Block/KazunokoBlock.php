@@ -36,9 +36,11 @@ class KazunokoBlock extends BlockBase {
    * @see \Drupal\block\BlockViewBuilder
    */
   public function build() {
+    $checkbox = $this->configuration['text'] ? 'checked!' : '';
+    $radio = $this->configuration['radio'] ? 'Yes' : 'No';
     return array(
       '#type' => 'markup',
-      '#markup' => $this->configuration['text'],
+      '#markup' => sprintf('text: %s, checkbox: %s, radio: %s', $this->configuration['text'], $checkbox, $radio),
       '#cache' => array(
         'contexts' => array('user'),
       ),
