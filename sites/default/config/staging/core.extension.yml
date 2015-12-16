@@ -3,13 +3,16 @@ module:
   ban: 0
   block: 0
   block_content: 0
+  block_example: 0
   breakpoint: 0
+  cache_example: 0
   ckeditor: 0
   color: 0
   comment: 0
   config: 0
   config_entity_example: 0
   contact: 0
+  content_entity_example: 0
   contextual: 0
   datetime: 0
   dblog: 0
@@ -23,6 +26,7 @@ module:
   help: 0
   history: 0
   image: 0
+  kazunoko_block: 0
   link: 0
   menu_ui: 0
   node: 0
@@ -34,10 +38,12 @@ module:
   search: 0
   shortcut: 0
   system: 0
+  tablesort_example: 0
   taxonomy: 0
   text: 0
   toolbar: 0
   tour: 0
+  tour_example: 0
   tracker: 0
   user: 0
   views_ui: 0

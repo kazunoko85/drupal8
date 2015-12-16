@@ -9,7 +9,7 @@ dependencies:
 id: activeforumtopics
 theme: bartik
 region: sidebar_first
-weight: null
+weight: -9
 provider: null
 plugin: forum_active_block
 settings:

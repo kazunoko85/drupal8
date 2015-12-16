@@ -1,0 +1,21 @@
+uuid: cb694d7b-986d-47f0-ad00-c64ebbc62bba
+langcode: en
+status: false
+dependencies:
+  module:
+    - block_example
+  theme:
+    - bartik
+id: titleoffirstblockexample_configurable_text
+theme: bartik
+region: '-1'
+weight: -9
+provider: null
+plugin: example_configurable_text
+settings:
+  id: example_configurable_text
+  label: 'Title of first block (example_configurable_text)'
+  provider: block_example
+  label_display: visible
+  block_example_string: 'A default value. This block was created at <em class="placeholder">2015-12-11T14:55:29+09:00</em>'
+visibility: {  }

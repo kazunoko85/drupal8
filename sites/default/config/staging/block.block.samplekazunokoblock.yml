@@ -1,0 +1,23 @@
+uuid: 90fff62e-8af3-4a6d-8000-c788b405aec8
+langcode: en
+status: true
+dependencies:
+  module:
+    - kazunoko_block
+  theme:
+    - bartik
+id: samplekazunokoblock
+theme: bartik
+region: content
+weight: -8
+provider: null
+plugin: kazunoko_block
+settings:
+  id: kazunoko_block
+  label: 'sample kazunoko block'
+  provider: kazunoko_block
+  label_display: visible
+  text: Drupal!
+  checkbox: 1
+  radio: '0'
+visibility: {  }
